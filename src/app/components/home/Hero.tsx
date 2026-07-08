@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="absolute bg-white opacity-80 w-[1200px] h-[660px] left-0 top-0 pb-[64px] pt-[280px] px-[64px] rounded-lg -z-10" />
 
           {/* Garden Background image wrapper */}
-          <div className="absolute left-[92.5px] top-[242px] w-[1015px] h-[367px] overflow-hidden rounded-lg shadow-xs z-0">
+          <div className="absolute left-[92.5px] top-[242px] w-[1015px] h-[367px] overflow-hidden rounded-none shadow-xs z-0">
             <img 
               alt="Garden Background" 
               className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" 
@@ -70,17 +70,17 @@ export default function Hero() {
           </div>
 
           {/* Interactive Stacked Images */}
-          <div className="relative w-full max-w-[450px] aspect-[450/400] flex justify-center items-center mt-4">
+          <div className="relative w-full max-w-[500px] aspect-[1200/660] mt-4 select-none">
             {/* Garden Background */}
-            <div className="absolute w-[90%] h-[70%] bottom-4 left-0 overflow-hidden rounded-lg shadow-sm">
+            <div className="absolute left-[7.71%] top-[36.67%] w-[84.58%] h-[55.61%] overflow-hidden">
               <img 
                 alt="Garden Background" 
-                className="w-full h-full object-cover" 
+                className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" 
                 src={imgMagnificRemoveFatherAndSonFroKLayHax16B1} 
               />
             </div>
             {/* Father & Son Cutout */}
-            <div className="absolute w-[75%] h-[90%] left-[20%] top-0 pointer-events-none">
+            <div className="absolute left-[11.5%] top-[17.27%] w-[60.17%] h-[81.67%] pointer-events-none">
               <img 
                 alt="Father and Son Gardening" 
                 className="w-full h-full object-contain" 

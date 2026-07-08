@@ -9,7 +9,7 @@ export default function WhyDhanvanti() {
   return (
     <section id="philosophy" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-20 border-t border-[#ececf0]/10">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
-        
+
         {/* Left Column: Core Purpose Quote */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
           <span className="font-chopin text-[#ffd582] text-[14px] md:text-[16px] tracking-[0.2em] uppercase select-none">
@@ -19,8 +19,8 @@ export default function WhyDhanvanti() {
             We did not set out <br />
             to build apartments. <br />
             <span className="font-chopin italic font-normal">We set out to give <br />
-            people back <br />
-            their time.</span>
+              people back <br />
+              their time.</span>
           </h2>
         </div>
 
@@ -40,7 +40,7 @@ export default function WhyDhanvanti() {
           {/* Numbered Philosophy Tenets */}
           <div className="w-full flex flex-col mt-4">
             {philosophies.map((item, index) => (
-              <div 
+              <div
                 key={index}
                 className="w-full flex justify-between items-center py-5 border-t border-white/20 hover:bg-white/5 px-2 transition-all duration-300 group cursor-pointer"
               >

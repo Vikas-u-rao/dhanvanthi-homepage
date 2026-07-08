@@ -51,39 +51,38 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         />
       </div>
 
-      {/* Desktop Navigation Links */}
-      <nav className="hidden md:flex items-center gap-2">
-        <button 
-          onClick={() => handleNavClick("philosophy")}
-          className="bg-[#f5f5f5] cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-gray-200"
-        >
-          Philosophy
-        </button>
-        <button 
-          onClick={() => handleNavClick("gallery")}
-          className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
-        >
-          Gallery
-        </button>
-        <button 
-          onClick={() => handleNavClick("location")}
-          className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
-        >
-          Location
-        </button>
-        <button 
-          onClick={() => handleNavClick("brochure")}
-          className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
-        >
-          Brochure
-        </button>
-      </nav>
+      {/* Desktop Navigation Links & Enquire CTA Grouped on the Right */}
+      <div className="hidden md:flex items-center gap-6">
+        <nav className="flex items-center gap-2">
+          <button 
+            onClick={() => handleNavClick("philosophy")}
+            className="bg-[#f5f5f5] cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-gray-200"
+          >
+            Philosophy
+          </button>
+          <button 
+            onClick={() => handleNavClick("gallery")}
+            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+          >
+            Gallery
+          </button>
+          <button 
+            onClick={() => handleNavClick("location")}
+            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+          >
+            Location
+          </button>
+          <button 
+            onClick={() => handleNavClick("brochure")}
+            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+          >
+            Brochure
+          </button>
+        </nav>
 
-      {/* Desktop Enquire CTA */}
-      <div className="hidden md:block">
         <button 
           onClick={handleEnquireClick}
-          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer px-6 py-2.5 rounded-[8px] font-inter font-normal text-[16px] transition-all"
+          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer px-5 py-2 rounded-[8px] font-inter font-normal text-[15px] transition-all"
         >
           Enquire Now
         </button>
