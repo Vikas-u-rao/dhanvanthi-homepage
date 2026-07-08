@@ -41,7 +41,7 @@ export default function LifeInside() {
   return (
     <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-16 select-none">
-        
+
         {/* Section Header */}
         <div className="flex flex-col gap-4">
           <span className="font-chopin text-[#ffd582] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
@@ -56,18 +56,17 @@ export default function LifeInside() {
         {/* Alternating Grid List */}
         <div className="flex flex-col gap-12 md:gap-16 mt-4">
           {items.map((item, idx) => (
-            <div 
+            <div
               key={idx}
-              className={`flex flex-col gap-6 md:gap-12 items-center w-full ${
-                item.isImageLeft ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+              className={`flex flex-col gap-6 md:gap-12 items-center w-full ${item.isImageLeft ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
             >
               {/* Image box (60% width on desktop) */}
               <div className="w-full md:w-[60%] aspect-[16/9] md:h-[276px] overflow-hidden rounded-lg shadow-md shrink-0">
-                <img 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                  src={item.img} 
+                <img
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={item.img}
                 />
               </div>
 

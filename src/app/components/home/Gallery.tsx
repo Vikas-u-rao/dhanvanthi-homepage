@@ -9,7 +9,7 @@ export default function Gallery() {
   return (
     <section id="gallery" className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-10 select-none">
-        
+
         {/* Title and Header */}
         <div className="flex flex-col gap-4">
           <span className="font-chopin text-[#638038] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
@@ -23,46 +23,46 @@ export default function Gallery() {
 
         {/* Masonry Grid */}
         <div className="w-full flex flex-col gap-6 mt-4">
-          
+
           {/* Row 1: Two side-by-side images (Unequal widths) */}
           <div className="grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-6 w-full">
             {/* Image 1 */}
             <div className="w-full aspect-[415/276] overflow-hidden rounded-lg shadow-sm">
-              <img 
-                alt="Valley Walk 1" 
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                src={imgRectangle12} 
+              <img
+                alt="Valley Walk 1"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                src={imgRectangle12}
               />
             </div>
             {/* Image 2 */}
             <div className="w-full aspect-[580/276] overflow-hidden rounded-lg shadow-sm">
-              <img 
-                alt="Valley Walk 2" 
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                src={imgRectangle15} 
+              <img
+                alt="Valley Walk 2"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                src={imgRectangle15}
               />
             </div>
           </div>
 
           {/* Row 2: Two columns of stacked images (Asymmetrical Masonry) */}
           <div className="grid grid-cols-1 md:grid-cols-[6fr_4fr] gap-6 w-full">
-            
+
             {/* Left Stack Column (Wider Column) */}
             <div className="flex flex-col gap-6">
               {/* Image 3 */}
               <div className="w-full aspect-[611/389] overflow-hidden rounded-lg shadow-sm">
-                <img 
-                  alt="Valley Walk 3" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                  src={imgRectangle16} 
+                <img
+                  alt="Valley Walk 3"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={imgRectangle16}
                 />
               </div>
               {/* Image 5 */}
               <div className="w-full aspect-[611/594] overflow-hidden rounded-lg shadow-sm">
-                <img 
-                  alt="Valley Walk 5" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                  src={imgRectangle13} 
+                <img
+                  alt="Valley Walk 5"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={imgRectangle13}
                 />
               </div>
             </div>
@@ -71,18 +71,18 @@ export default function Gallery() {
             <div className="flex flex-col gap-6">
               {/* Image 4 */}
               <div className="w-full aspect-[386/704] overflow-hidden rounded-lg shadow-sm">
-                <img 
-                  alt="Valley Walk 4" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                  src={imgRectangle17} 
+                <img
+                  alt="Valley Walk 4"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={imgRectangle17}
                 />
               </div>
               {/* Image 6 */}
               <div className="w-full aspect-[387/276] overflow-hidden rounded-lg shadow-sm">
-                <img 
-                  alt="Valley Walk 6" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                  src={imgRectangle14} 
+                <img
+                  alt="Valley Walk 6"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={imgRectangle14}
                 />
               </div>
             </div>

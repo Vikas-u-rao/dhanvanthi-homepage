@@ -6,7 +6,7 @@ export default function Architecture() {
   return (
     <section className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-10 select-none">
-        
+
         {/* Title and Intro */}
         <div className="flex flex-col gap-4">
           <span className="font-chopin text-[#638038] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
@@ -23,34 +23,34 @@ export default function Architecture() {
 
         {/* Images Grid Layout */}
         <div className="w-full flex flex-col gap-6 mt-4">
-          
+
           {/* Top Row: Two side-by-side images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {/* Left Image */}
             <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
-              <img 
-                alt="Architecture Close-up Left" 
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                src={imgRectangle6} 
+              <img
+                alt="Architecture Close-up Left"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                src={imgRectangle6}
               />
             </div>
 
             {/* Right Image */}
             <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
-              <img 
-                alt="Architecture Close-up Right" 
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                src={imgRectangle5} 
+              <img
+                alt="Architecture Close-up Right"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                src={imgRectangle5}
               />
             </div>
           </div>
 
           {/* Bottom Row: Wide banner image */}
           <div className="w-full aspect-[16/9] md:h-[535px] overflow-hidden rounded-lg shadow-sm">
-            <img 
-              alt="Architecture View Wide" 
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]" 
-              src={imgRectangle3} 
+            <img
+              alt="Architecture View Wide"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+              src={imgRectangle3}
             />
           </div>
 

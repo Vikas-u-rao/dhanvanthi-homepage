@@ -70,23 +70,53 @@ export default function EnquiryPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Enquiry Form Submitted Successfully:", formData);
-      toast.success("Thank you for your enquiry! Our experts will contact you shortly.", {
-        description: "We have received your message.",
-        duration: 5000
-      });
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-        agree: false
-      });
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+      
+      const toastId = toast.loading("Sending your enquiry...");
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            subject: "New Property Enquiry - Dhanvanti Valley"
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          toast.success("Thank you! Your enquiry has been sent successfully.", {
+            id: toastId,
+            description: "Our experts will contact you shortly.",
+            duration: 5000
+          });
+          
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            message: "",
+            agree: false
+          });
+        } else {
+          toast.error(result.message || "Failed to send enquiry. Please try again.", { id: toastId });
+        }
+      } catch (error) {
+        toast.error("An error occurred. Please check your connection and try again.", { id: toastId });
+      }
     } else {
       toast.error("Please resolve the errors in the form before submitting.");
     }
@@ -124,7 +154,7 @@ export default function EnquiryPage() {
                   value={formData.firstName}
                   onChange={handleChange}
                   placeholder="Enter First Name"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038]/50 text-[14px] w-full transition-all"
+                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
                 />
                 {errors.firstName && <span className="text-red-500 text-xs mt-1 font-inter">{errors.firstName}</span>}
               </div>
@@ -140,7 +170,7 @@ export default function EnquiryPage() {
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="Enter Last Name"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038]/50 text-[14px] w-full transition-all"
+                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
                 />
                 {errors.lastName && <span className="text-red-500 text-xs mt-1 font-inter">{errors.lastName}</span>}
               </div>
@@ -159,7 +189,7 @@ export default function EnquiryPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your Email"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038]/50 text-[14px] w-full transition-all"
+                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
                 />
                 {errors.email && <span className="text-red-500 text-xs mt-1 font-inter">{errors.email}</span>}
               </div>
@@ -175,7 +205,7 @@ export default function EnquiryPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Enter Phone Number"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038]/50 text-[14px] w-full transition-all"
+                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
                 />
                 {errors.phone && <span className="text-red-500 text-xs mt-1 font-inter">{errors.phone}</span>}
               </div>
@@ -193,7 +223,7 @@ export default function EnquiryPage() {
                 onChange={handleChange}
                 placeholder="Enter your Message here.."
                 rows={4}
-                className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038]/50 text-[14px] w-full transition-all resize-none"
+                className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all resize-none"
               />
               {errors.message && <span className="text-red-500 text-xs mt-1 font-inter">{errors.message}</span>}
             </div>

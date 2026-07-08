@@ -79,8 +79,8 @@
 }
 
 @theme inline {
-  --font-chopin: 'Cormorant Garamond', Georgia, serif;
-  --font-bavicka: 'Dancing Script', cursive;
+  --font-chopin: 'Chopin-Trial VF', 'Cormorant Garamond', Georgia, serif;
+  --font-bavicka: 'Bavicka', 'Dancing Script', cursive;
   --font-urbanist: 'Urbanist', sans-serif;
   --font-inter: 'Inter', sans-serif;
   --color-background: var(--background);
@@ -181,5 +181,17 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+/* Make the site scale up beautifully on larger desktop displays to match 150% zoom proportions */
+@media (min-width: 1400px) {
+  html {
+    zoom: 1.5;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  html {
+    zoom: 1.2;
   }
 }
