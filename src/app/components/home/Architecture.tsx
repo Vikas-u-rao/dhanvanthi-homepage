@@ -31,7 +31,7 @@ export default function Architecture() {
               <img
                 alt="Architecture Close-up Left"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle6}
+                src={imgRectangle6.src}
               />
             </div>
 
@@ -40,7 +40,7 @@ export default function Architecture() {
               <img
                 alt="Architecture Close-up Right"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle5}
+                src={imgRectangle5.src}
               />
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function Architecture() {
             <img
               alt="Architecture View Wide"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
-              src={imgRectangle3}
+              src={imgRectangle3.src}
             />
           </div>
 

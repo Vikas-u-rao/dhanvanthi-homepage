@@ -1,126 +1,80 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { clientInquirySchema, type ClientInquiryInput } from "@/lib/validation";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { toast } from "sonner";
+import { ChevronDown, CheckCircle2, RefreshCw } from "lucide-react";
 
 export default function EnquiryPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-    agree: false
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const turnstileRef = useRef<any>(null);
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+    reset,
+  } = useForm<ClientInquiryInput>({
+    resolver: zodResolver(clientInquirySchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      project: "",
+      message: "",
+      turnstileToken: "",
+    },
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const onSubmit = async (data: ClientInquiryInput) => {
+    setIsSubmitting(true);
+    const toastId = toast.loading("Sending your enquiry...");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-    // Clear error for field
-    if (errors[name]) {
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next[name];
-        return next;
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
       });
-    }
-  };
 
-  const handleCheckboxChange = (checked: boolean) => {
-    setFormData((prev) => ({ ...prev, agree: checked }));
-    if (errors.agree) {
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next.agree;
-        return next;
-      });
-    }
-  };
+      const result = await response.json();
 
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    
-    // Email regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (formData.phone.trim().length < 10) {
-      newErrors.phone = "Please enter a valid phone number";
-    }
-
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    if (!formData.agree) newErrors.agree = "You must agree to the terms";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
-      
-      const toastId = toast.loading("Sending your enquiry...");
-
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name: `${formData.firstName} ${formData.lastName}`,
-            email: formData.email,
-            phone: formData.phone,
-            message: formData.message,
-            subject: "New Property Enquiry - Dhanvanti Valley"
-          })
+      if (response.ok) {
+        toast.success("Thank you! Your enquiry has been sent successfully.", {
+          id: toastId,
+          description: "Our experts will contact you shortly.",
+          duration: 5000,
         });
-
-        const result = await response.json();
-
-        if (result.success) {
-          toast.success("Thank you! Your enquiry has been sent successfully.", {
-            id: toastId,
-            description: "Our experts will contact you shortly.",
-            duration: 5000
-          });
-          
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            message: "",
-            agree: false
-          });
-        } else {
-          toast.error(result.message || "Failed to send enquiry. Please try again.", { id: toastId });
-        }
-      } catch (error) {
-        toast.error("An error occurred. Please check your connection and try again.", { id: toastId });
+        setIsSuccess(true);
+        reset();
+      } else {
+        toast.error(result.message || "Failed to send enquiry. Please try again.", {
+          id: toastId,
+        });
+        // Reset turnstile token to force re-verification
+        setValue("turnstileToken", "");
+        turnstileRef.current?.reset();
       }
-    } else {
-      toast.error("Please resolve the errors in the form before submitting.");
+    } catch (error) {
+      toast.error("An error occurred. Please check your connection and try again.", {
+        id: toastId,
+      });
+      setValue("turnstileToken", "");
+      turnstileRef.current?.reset();
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  // Standard Cloudflare testing sitekey (always passes)
+  const turnstileSiteKey =
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
   return (
     <section className="w-full bg-[#f2f6df] py-12 md:py-20 px-4 md:px-8 relative flex flex-col items-center">
@@ -138,122 +92,160 @@ export default function EnquiryPage() {
         </div>
 
         {/* Right Side: Interactive Form Container */}
-        <div className="w-full lg:w-[60%] bg-white border border-[#638038]/50 rounded-[10px] p-6 md:p-10 shadow-lg">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
-            
-            {/* Grid for Name inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+        <div className="w-full lg:w-[60%] bg-white border border-[#638038]/50 rounded-[10px] p-6 md:p-10 shadow-lg min-h-[450px] flex flex-col justify-center">
+          {isSuccess ? (
+            <div className="flex flex-col items-center justify-center text-center py-10 gap-6 select-none animate-in fade-in zoom-in-95 duration-500">
+              <CheckCircle2 className="size-16 text-[#638038]" />
               <div className="flex flex-col gap-2">
-                <label htmlFor="firstName" className="font-chopin text-[#638038] text-[16px] font-semibold">
-                  First Name
-                </label>
-                <input 
-                  type="text" 
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder="Enter First Name"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
-                />
-                {errors.firstName && <span className="text-red-500 text-xs mt-1 font-inter">{errors.firstName}</span>}
+                <h3 className="font-chopin text-[#638038] text-[24px] font-semibold">
+                  Submission Successful
+                </h3>
+                <p className="font-urbanist text-[#666] text-[16px] max-w-md">
+                  Thank you for your interest in Dhanvanti Valley. Our sales experts have received your request and will get in touch with you shortly via phone or email.
+                </p>
               </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="lastName" className="font-chopin text-[#638038] text-[16px] font-semibold">
-                  Last Name
-                </label>
-                <input 
-                  type="text" 
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  placeholder="Enter Last Name"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
-                />
-                {errors.lastName && <span className="text-red-500 text-xs mt-1 font-inter">{errors.lastName}</span>}
-              </div>
-            </div>
-
-            {/* Grid for Contact inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="font-chopin text-[#638038] text-[16px] font-semibold">
-                  Email
-                </label>
-                <input 
-                  type="email" 
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your Email"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
-                />
-                {errors.email && <span className="text-red-500 text-xs mt-1 font-inter">{errors.email}</span>}
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="phone" className="font-urbanist text-[#638038] text-[16px] font-semibold">
-                  Phone
-                </label>
-                <input 
-                  type="tel" 
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter Phone Number"
-                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
-                />
-                {errors.phone && <span className="text-red-500 text-xs mt-1 font-inter">{errors.phone}</span>}
-              </div>
-            </div>
-
-            {/* Message Textarea */}
-            <div className="flex flex-col gap-2 w-full">
-              <label htmlFor="message" className="font-chopin text-[#638038] text-[16px] font-semibold">
-                Message
-              </label>
-              <textarea 
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Enter your Message here.."
-                rows={4}
-                className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all resize-none"
-              />
-              {errors.message && <span className="text-red-500 text-xs mt-1 font-inter">{errors.message}</span>}
-            </div>
-
-            {/* Checkbox and Submit Button Container */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mt-4 w-full">
-              <div className="flex gap-3 items-center">
-                <input 
-                  type="checkbox" 
-                  id="agree"
-                  name="agree"
-                  checked={formData.agree}
-                  onChange={(e) => handleCheckboxChange(e.target.checked)}
-                  className="size-[20px] cursor-pointer accent-[#638038] border border-gray-300 rounded-sm"
-                />
-                <label htmlFor="agree" className="font-urbanist text-[#999] text-[15px] cursor-pointer select-none">
-                  I agree with <span className="underline cursor-pointer text-[#638038] font-semibold">Terms of Use</span> and <span className="underline cursor-pointer text-[#638038] font-semibold">Privacy Policy</span>
-                </label>
-              </div>
-
-              <button 
-                type="submit"
-                className="bg-[#ca9731] hover:bg-[#b08125] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-8 py-3.5 rounded-[6px] whitespace-nowrap cursor-pointer w-full sm:w-auto text-center"
+              <button
+                onClick={() => setIsSuccess(false)}
+                className="mt-4 bg-[#638038] hover:bg-[#536c2e] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer"
               >
-                Send Your Message
+                Submit Another Inquiry
               </button>
             </div>
-            {errors.agree && <span className="text-red-500 text-xs font-inter">{errors.agree}</span>}
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-full">
+              
+              {/* Grid for Name and Project */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="font-chopin text-[#638038] text-[16px] font-semibold">
+                    Full Name
+                  </label>
+                  <input 
+                    type="text" 
+                    id="name"
+                    placeholder="Enter Full Name"
+                    {...register("name")}
+                    className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
+                  />
+                  {errors.name && (
+                    <span className="text-red-500 text-xs mt-1 font-inter">{errors.name.message}</span>
+                  )}
+                </div>
 
-          </form>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="project" className="font-chopin text-[#638038] text-[16px] font-semibold">
+                    Project Phase (Optional)
+                  </label>
+                  <div className="relative w-full">
+                    <select 
+                      id="project"
+                      {...register("project")}
+                      className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 pr-12 rounded-[6px] font-chopin text-[#394d23] text-[14px] w-full transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="">General Inquiry / Any Project</option>
+                      <option value="The Meadows">The Meadows (Villas)</option>
+                      <option value="The Orchards">The Orchards (Estates)</option>
+                      <option value="The Ridge">The Ridge (Apartments)</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#638038]">
+                      <ChevronDown className="size-4" />
+                    </div>
+                  </div>
+                  {errors.project && (
+                    <span className="text-red-500 text-xs mt-1 font-inter">{errors.project.message}</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Grid for Contact inputs */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="font-chopin text-[#638038] text-[16px] font-semibold">
+                    Email
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    placeholder="Enter your Email"
+                    {...register("email")}
+                    className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
+                  />
+                  {errors.email && (
+                    <span className="text-red-500 text-xs mt-1 font-inter">{errors.email.message}</span>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="phone" className="font-urbanist text-[#638038] text-[16px] font-semibold">
+                    Phone
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone"
+                    placeholder="Enter Phone Number"
+                    {...register("phone")}
+                    className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all"
+                  />
+                  {errors.phone && (
+                    <span className="text-red-500 text-xs mt-1 font-inter">{errors.phone.message}</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Message Textarea */}
+              <div className="flex flex-col gap-2 w-full">
+                <label htmlFor="message" className="font-chopin text-[#638038] text-[16px] font-semibold">
+                  Message
+                </label>
+                <textarea 
+                  id="message"
+                  placeholder="Enter your Message here (minimum 10 characters)..."
+                  rows={4}
+                  {...register("message")}
+                  className="bg-[rgba(99,128,56,0.12)] border border-transparent focus:border-[#638038] outline-hidden px-5 py-4 rounded-[6px] font-chopin text-[#394d23] placeholder-[#638038] text-[14px] w-full transition-all resize-none"
+                />
+                {errors.message && (
+                  <span className="text-red-500 text-xs mt-1 font-inter">{errors.message.message}</span>
+                )}
+              </div>
+
+              {/* Turnstile Container */}
+              <div className="flex flex-col gap-2">
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={turnstileSiteKey}
+                  onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
+                  onError={() => {
+                    toast.error("Spam protection widget error. Please reload the page.");
+                    setValue("turnstileToken", "");
+                  }}
+                  onExpire={() => setValue("turnstileToken", "")}
+                />
+                {errors.turnstileToken && (
+                  <span className="text-red-500 text-xs font-inter">{errors.turnstileToken.message}</span>
+                )}
+              </div>
+
+              {/* Submit Button Container */}
+              <div className="flex justify-end items-center gap-6 mt-2 w-full">
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-[#ca9731] hover:bg-[#b08125] text-white hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none transition-all duration-300 font-urbanist font-medium text-[14px] px-8 py-3.5 rounded-[6px] whitespace-nowrap cursor-pointer w-full sm:w-auto text-center flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <RefreshCw className="size-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Your Message"
+                  )}
+                </button>
+              </div>
+
+            </form>
+          )}
         </div>
 
       </div>

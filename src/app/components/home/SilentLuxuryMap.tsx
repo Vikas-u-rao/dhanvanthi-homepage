@@ -43,7 +43,7 @@ export default function SilentLuxuryMap() {
           <img 
             alt="Dhanvanti Valley Logo Node" 
             className="w-full h-full object-contain pointer-events-none select-none" 
-            src={imgDhanvntiValleyLogoFroLightBg1} 
+            src={imgDhanvntiValleyLogoFroLightBg1.src} 
           />
         </div>
 

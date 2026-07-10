@@ -56,7 +56,7 @@ export default function Location() {
             <img
               alt="Dhanvanti Valley Map Details"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              src={imgRectangle18}
+              src={imgRectangle18.src}
             />
           </div>
         </div>

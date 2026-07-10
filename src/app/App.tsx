@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Toaster } from "sonner";
 import Navbar from "@/app/components/layout/Navbar";

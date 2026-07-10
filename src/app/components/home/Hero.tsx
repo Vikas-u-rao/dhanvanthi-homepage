@@ -11,7 +11,7 @@ export default function Hero() {
         <img 
           alt="Dhanvanti Valley Hero Banner" 
           className="w-full h-full object-cover" 
-          src={imgHeroBasic} 
+          src={imgHeroBasic.src} 
         />
       </div>
 
@@ -29,7 +29,7 @@ export default function Hero() {
             <img 
               alt="Garden Background" 
               className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" 
-              src={imgMagnificRemoveFatherAndSonFroKLayHax16B1} 
+              src={imgMagnificRemoveFatherAndSonFroKLayHax16B1.src} 
             />
           </div>
 
@@ -38,7 +38,7 @@ export default function Hero() {
             <img 
               alt="Father and Son Gardening" 
               className="w-full h-full object-contain pointer-events-none" 
-              src={imgChatGptImageJun252026022748PmRemovebgPreview1} 
+              src={imgChatGptImageJun252026022748PmRemovebgPreview1.src} 
             />
           </div>
 
@@ -76,7 +76,7 @@ export default function Hero() {
               <img 
                 alt="Garden Background" 
                 className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" 
-                src={imgMagnificRemoveFatherAndSonFroKLayHax16B1} 
+                src={imgMagnificRemoveFatherAndSonFroKLayHax16B1.src} 
               />
             </div>
             {/* Father & Son Cutout */}
@@ -84,7 +84,7 @@ export default function Hero() {
               <img 
                 alt="Father and Son Gardening" 
                 className="w-full h-full object-contain" 
-                src={imgChatGptImageJun252026022748PmRemovebgPreview1} 
+                src={imgChatGptImageJun252026022748PmRemovebgPreview1.src} 
               />
             </div>
           </div>

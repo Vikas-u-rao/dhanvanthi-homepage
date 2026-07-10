@@ -47,7 +47,7 @@ function Slot() {
         </button>
       </div>
       <button className="content-stretch cursor-pointer flex items-center justify-center p-[8px] relative rounded-[8px] shrink-0" data-name="Navigation Pill">
-        <div className="[word-break:break-word] flex flex-col font-['Chopin-Trial_VF:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#2c2c2c] text-[16px] text-left whitespace-nowrap" role="button" tabIndex="0">
+        <div className="[word-break:break-word] flex flex-col font-['Chopin-Trial_VF:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#2c2c2c] text-[16px] text-left whitespace-nowrap" role="button" tabIndex={0}>
           <p className="leading-none">Gallery</p>
         </div>
       </button>
@@ -129,7 +129,7 @@ function SilentLuxury() {
   return (
     <div className="absolute contents left-[61px] top-[2051px]" data-name="Silent Luxury">
       <div className="-translate-x-1/2 absolute h-[270px] left-[calc(50%+0.5px)] top-[2654px] w-[379px]" data-name="Dhanvnti Valley Logo_FroLightBG 2">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvntiValleyLogoFroLightBg1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvntiValleyLogoFroLightBg1.src} />
       </div>
       <div className="absolute left-[391px] size-[393px] top-[2592px]">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 393 393">
@@ -360,7 +360,7 @@ function Group5() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[761px] not-italic text-[25px] text-white top-[5505px] tracking-[-0.5px] w-[315px]">The Morning Swim</p>
       <div className="absolute h-[276px] left-[65px] top-[5452px] w-[617px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[125.81%] left-[0.04%] max-w-none top-[-25.67%] w-full" src={imgRectangle7} />
+          <img alt="" className="absolute h-[125.81%] left-[0.04%] max-w-none top-[-25.67%] w-full" src={imgRectangle7.src} />
         </div>
       </div>
     </div>
@@ -378,7 +378,7 @@ function Group12() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[771px] not-italic text-[25px] text-white top-[6159px] tracking-[-0.5px] w-[315px]">Evening Tea, Open Greens</p>
       <div className="absolute h-[276px] left-[75px] top-[6098px] w-[607px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[134.31%] left-[-0.02%] max-w-none top-[-23.95%] w-full" src={imgRectangle8} />
+          <img alt="" className="absolute h-[134.31%] left-[-0.02%] max-w-none top-[-23.95%] w-full" src={imgRectangle8.src} />
         </div>
       </div>
     </div>
@@ -398,7 +398,7 @@ function Group14() {
       </p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[761px] not-italic text-[25px] text-white top-[6805px] tracking-[-0.5px] w-[315px]">{`Wellness & Gym Studio`}</p>
       <div className="absolute h-[276px] left-[65px] top-[6744px] w-[607px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle9} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle9.src} />
       </div>
     </div>
   );
@@ -410,7 +410,7 @@ function Group11() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[67px] not-italic text-[20px] text-white top-[5888px] tracking-[-0.4px] w-[385px] whitespace-pre-wrap">{`A dedicated putting green and practice area set against the treeline —  the kind of space where a round of golf stops being exercise and starts  being meditation.`}</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[67px] not-italic text-[25px] text-white top-[5842px] tracking-[-0.5px] w-[315px]">Golf Practice Area</p>
       <div className="absolute h-[276px] left-[682px] top-[5775px] w-[440px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle10} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle10.src} />
       </div>
     </div>
   );
@@ -422,7 +422,7 @@ function Group13() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[75px] not-italic text-[20px] text-white top-[6534px] tracking-[-0.4px] w-[364px]">A space built for nothing in particular — perfect light, deep chairs, and silence thick enough to finish a chapter in.</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[75px] not-italic text-[25px] text-white top-[6488px] tracking-[-0.5px] w-[315px]">The Lounge</p>
       <div className="absolute h-[276px] left-[690px] top-[6421px] w-[440px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle11} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle11.src} />
       </div>
     </div>
   );
@@ -450,22 +450,22 @@ function Gallery() {
   return (
     <div className="absolute contents left-[80px] top-[7151px]" data-name="Gallery">
       <div className="absolute h-[276px] left-[83px] top-[7327px] w-[415px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle12} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle12.src} />
       </div>
       <div className="absolute h-[276px] left-[731px] top-[8373px] w-[387px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle14} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle14.src} />
       </div>
       <div className="absolute h-[594px] left-[83px] top-[8055px] w-[611px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle13} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle13.src} />
       </div>
       <div className="absolute h-[276px] left-[537px] top-[7327px] w-[580px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle15} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle15.src} />
       </div>
       <div className="absolute h-[389px] left-[83px] top-[7633px] w-[611px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle16} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle16.src} />
       </div>
       <div className="absolute h-[704px] left-[731px] top-[7633px] w-[386px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle17} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle17.src} />
       </div>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[83px] not-italic text-[#638038] text-[24px] top-[7151px] tracking-[-0.48px] w-[1200px]">GALLERY</p>
       <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Chopin-Trial_VF:Roman',sans-serif] justify-center leading-[0] left-[80px] not-italic text-[#394d23] text-[40px] top-[7249px] tracking-[-0.8px] w-[657px]">
@@ -550,7 +550,7 @@ function LocationSection() {
       </div>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9252px] tracking-[-0.4px] whitespace-nowrap">11 min</p>
       <div className="absolute h-[685px] left-[731px] top-[8822px] w-[387px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle18} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle18.src} />
       </div>
     </div>
   );
@@ -742,11 +742,11 @@ function Group15() {
     <div className="-translate-x-1/2 absolute contents left-[calc(50%+0.5px)] top-[720px]">
       <div className="-translate-x-1/2 absolute h-[367px] left-[calc(50%+0.5px)] top-[848px] w-[1015px]" data-name="magnific_remove-father-and-son-fro_kLayHax16B 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" src={imgMagnificRemoveFatherAndSonFroKLayHax16B1} />
+          <img alt="" className="absolute h-[158.31%] left-[-0.03%] max-w-none top-[-52.28%] w-[100.02%]" src={imgMagnificRemoveFatherAndSonFroKLayHax16B1.src} />
         </div>
       </div>
       <div className="absolute h-[539px] left-[138px] top-[720px] w-[722px]" data-name="ChatGPT_Image_Jun_25__2026__02_27_48_PM-removebg-preview 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgChatGptImageJun252026022748PmRemovebgPreview1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgChatGptImageJun252026022748PmRemovebgPreview1.src} />
       </div>
     </div>
   );
@@ -778,7 +778,7 @@ function HeroSection() {
     <div className="absolute contents left-0 top-[134px]" data-name="Hero Section">
       <div className="absolute content-stretch flex flex-col h-[472px] items-center left-0 px-[64px] py-[160px] top-[134px] w-[1200px]" data-name="Hero Basic">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[118.55%] left-[-0.02%] max-w-none top-[-5.58%] w-full" src={imgHeroBasic} />
+          <img alt="" className="absolute h-[118.55%] left-[-0.02%] max-w-none top-[-5.58%] w-full" src={imgHeroBasic.src} />
         </div>
       </div>
       <Group26 />
@@ -825,16 +825,16 @@ function Architecture() {
       <Frame1 />
       <div className="absolute h-[535px] left-[73px] top-[4617px] w-[1055px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[107.53%] left-[0.03%] max-w-none top-[-0.01%] w-full" src={imgRectangle3} />
+          <img alt="" className="absolute h-[107.53%] left-[0.03%] max-w-none top-[-0.01%] w-full" src={imgRectangle3.src} />
         </div>
       </div>
       <div className="absolute h-[435px] left-[611px] top-[4166px] w-[517px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-full left-[-9.97%] max-w-none top-[0.14%] w-[149.64%]" src={imgRectangle5} />
+          <img alt="" className="absolute h-full left-[-9.97%] max-w-none top-[0.14%] w-[149.64%]" src={imgRectangle5.src} />
         </div>
       </div>
       <div className="absolute h-[435px] left-[73px] top-[4166px] w-[516px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle6} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle6.src} />
       </div>
       <TextContentHeading3 />
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[73px] not-italic text-[#638038] text-[16px] top-[3889px] tracking-[-0.32px] w-[1200px]">ARCHITECTURE</p>
@@ -882,7 +882,7 @@ function Group24() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[520px] not-italic text-[#ca9731] text-[20px] top-[10335px] tracking-[-0.4px] w-[119px]">VISIT</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[969px] not-italic text-[#ca9731] text-[20px] top-[10335px] tracking-[-0.4px] w-[119px]">CONTACT</p>
       <button className="absolute block cursor-pointer h-[156px] left-[18px] top-[10302px] w-[461px]" data-name="Dhanvanti Valley Logo 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvantiValleyLogo1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvantiValleyLogo1.src} />
       </button>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[520px] not-italic text-[#638038] text-[20px] top-[10380px] tracking-[-0.4px] w-[454px]">Hathibarkala Road, Dehradun, Uttarakhand</p>
       <a className="[word-break:break-word] absolute block font-['Chopin-Trial_VF:Roman',sans-serif] leading-[0] left-[968px] not-italic text-[#638038] text-[20px] top-[10380px] tracking-[-0.4px] whitespace-nowrap" href="file:///Users/arpanjeetkaur/Downloads/dhanvanti-valley(1).html#" target="_blank">
@@ -903,7 +903,7 @@ function Group20() {
           <div className="h-[431px] relative w-[1215px]" data-name="Picture1 1">
             <div aria-hidden className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 overflow-hidden">
-                <img alt="" className="absolute h-[214.15%] left-[-0.04%] max-w-none top-0 w-[100.07%]" src={imgPicture11} />
+                <img alt="" className="absolute h-[214.15%] left-[-0.04%] max-w-none top-0 w-[100.07%]" src={imgPicture11.src} />
               </div>
               <div className="absolute bg-[rgba(0,0,0,0.5)] inset-0" />
             </div>
@@ -960,7 +960,7 @@ export default function HomepageDhanvantiValley() {
       </div>
       <div className="absolute h-[66px] left-[21px] top-[35px] w-[331px]" data-name="Dhanvnti Valley Logo_FroLightBG 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[357.31%] left-0 max-w-none top-[-108.86%] w-full" src={imgDhanvntiValleyLogoFroLightBg1} />
+          <img alt="" className="absolute h-[357.31%] left-0 max-w-none top-[-108.86%] w-full" src={imgDhanvntiValleyLogoFroLightBg1.src} />
         </div>
       </div>
       <CardGridImage />
