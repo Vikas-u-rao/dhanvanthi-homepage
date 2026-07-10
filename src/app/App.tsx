@@ -64,6 +64,7 @@ export default function App() {
         {page === "home" ? (
           <div className="w-full flex flex-col">
             <Hero />
+            {/* Commented out for initial launch preview
             <WhyDhanvanti />
             <SilentLuxuryMap />
             <SilentLuxuryInfo />
@@ -72,12 +73,15 @@ export default function App() {
             <Gallery />
             <Location />
             <DetailsBar />
+            */}
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
         ) : (
           <div className="w-full flex flex-col">
+            {/* Commented out for initial launch preview
             <EnquiryPage />
             <DetailsBar />
+            */}
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
         )}
