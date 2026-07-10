@@ -12,29 +12,15 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (sectionId: string) => {
-    setIsOpen(false);
-    if (currentPage !== "home") {
-      onNavigate("home");
-      // Wait for page transition to complete before scrolling
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    } else {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    // Disabled for initial hosting preview
   };
 
   const handleEnquireClick = () => {
-    setIsOpen(false);
-    onNavigate("enquiry");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Disabled for initial hosting preview
   };
 
   const handleLogoClick = () => {
-    onNavigate("home");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Disabled for initial hosting preview
   };
 
   return (
