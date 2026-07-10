@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="w-full relative overflow-visible">
         
         {/* DESKTOP VIEWPORT: Pixel-perfect overlay container using exact absolute metrics from Figma */}
-        <div className="hidden lg:block relative w-[1200px] h-[660px] mx-auto overflow-visible select-none">
+        <div className="hidden xl:block relative w-[1200px] h-[660px] mx-auto overflow-visible select-none">
           
           {/* Panel Image Double: White backdrop card with 80% opacity */}
           <div className="absolute bg-white opacity-80 w-[1200px] h-[660px] left-0 top-0 pb-[64px] pt-[280px] px-[64px] rounded-lg -z-10" />
@@ -57,7 +57,7 @@ export default function Hero() {
         </div>
 
         {/* MOBILE & TABLET VIEWPORT: Dynamic Flex stack layout with zero overflow */}
-        <div className="lg:hidden w-full max-w-3xl mx-auto px-6 py-12 flex flex-col items-center gap-8 text-center select-none">
+        <div className="xl:hidden w-full max-w-3xl mx-auto px-6 py-12 flex flex-col items-center gap-8 text-center select-none">
           {/* Typography */}
           <div className="flex flex-col items-center gap-2">
             <div className="font-bavicka text-[#638038] text-[36px] sm:text-[40px] leading-none">
