@@ -31,7 +31,7 @@ export default function Gallery() {
               <img
                 alt="Valley Walk 1"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle12}
+                src={imgRectangle12.src}
               />
             </div>
             {/* Image 2 */}
@@ -39,7 +39,7 @@ export default function Gallery() {
               <img
                 alt="Valley Walk 2"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle15}
+                src={imgRectangle15.src}
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Gallery() {
                 <img
                   alt="Valley Walk 3"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  src={imgRectangle16}
+                  src={imgRectangle16.src}
                 />
               </div>
               {/* Image 5 */}
@@ -62,7 +62,7 @@ export default function Gallery() {
                 <img
                   alt="Valley Walk 5"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  src={imgRectangle13}
+                  src={imgRectangle13.src}
                 />
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function Gallery() {
                 <img
                   alt="Valley Walk 4"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  src={imgRectangle17}
+                  src={imgRectangle17.src}
                 />
               </div>
               {/* Image 6 */}
@@ -82,7 +82,7 @@ export default function Gallery() {
                 <img
                   alt="Valley Walk 6"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  src={imgRectangle14}
+                  src={imgRectangle14.src}
                 />
               </div>
             </div>

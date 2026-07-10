@@ -15,7 +15,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
           <img 
             alt="Footer Background" 
             className="absolute w-full h-full object-cover scale-y-[-1] rotate-180 opacity-70" 
-            src={imgPicture11} 
+            src={imgPicture11.src} 
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -50,7 +50,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
             <img 
               alt="Dhanvanti Valley Logo" 
               className="max-h-[120px] md:max-h-[156px] object-contain select-none" 
-              src={imgDhanvantiValleyLogo1} 
+              src={imgDhanvantiValleyLogo1.src} 
             />
           </div>
 

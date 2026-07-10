@@ -66,7 +66,7 @@ export default function LifeInside() {
                 <img
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  src={item.img}
+                  src={item.img.src}
                 />
               </div>
 

@@ -47,7 +47,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         <img 
           alt="Dhanvanti Valley Logo" 
           className="absolute max-w-none w-full h-[357.31%] left-0 top-[-108.86%] object-contain" 
-          src={imgDhanvntiValleyLogoFroLightBg1} 
+          src={imgDhanvntiValleyLogoFroLightBg1.src} 
         />
       </div>
 
@@ -106,7 +106,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 <img 
                   alt="Dhanvanti Valley Logo" 
                   className="absolute max-w-none w-full h-[357.31%] left-0 top-[-108.86%] object-contain" 
-                  src={imgDhanvntiValleyLogoFroLightBg1} 
+                  src={imgDhanvntiValleyLogoFroLightBg1.src} 
                 />
               </div>
             </div>

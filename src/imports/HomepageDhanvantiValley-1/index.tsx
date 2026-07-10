@@ -39,7 +39,7 @@ function Slot() {
         </button>
       </div>
       <button className="content-stretch cursor-pointer flex items-center justify-center p-[8px] relative rounded-[8px] shrink-0" data-name="Navigation Pill">
-        <div className="[word-break:break-word] flex flex-col font-['Chopin-Trial_VF:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#2c2c2c] text-[16px] text-left whitespace-nowrap" role="button" tabIndex="0">
+        <div className="[word-break:break-word] flex flex-col font-['Chopin-Trial_VF:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#2c2c2c] text-[16px] text-left whitespace-nowrap" role="button" tabIndex={0}>
           <p className="leading-none">Gallery</p>
         </div>
       </button>
@@ -368,7 +368,7 @@ function Group5() {
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[513px] not-italic text-[#ca9731] text-[20px] top-[1457px] tracking-[-0.4px] w-[119px]">VISIT</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[962px] not-italic text-[#ca9731] text-[20px] top-[1457px] tracking-[-0.4px] w-[119px]">CONTACT</p>
       <a className="absolute block cursor-pointer h-[156px] left-[11px] top-[1424px] w-[461px]" data-name="Dhanvanti Valley Logo 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvantiValleyLogo1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDhanvantiValleyLogo1.src} />
       </a>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[513px] not-italic text-[#638038] text-[20px] top-[1502px] tracking-[-0.4px] w-[454px]">Hathibarkala Road, Dehradun, Uttarakhand</p>
       <a className="[word-break:break-word] absolute block font-['Chopin-Trial_VF:Roman',sans-serif] leading-[0] left-[961px] not-italic text-[#638038] text-[20px] top-[1502px] tracking-[-0.4px] whitespace-nowrap" href="file:///Users/arpanjeetkaur/Downloads/dhanvanti-valley(1).html#" target="_blank">
@@ -389,7 +389,7 @@ function Group2() {
           <div className="h-[431px] relative w-[1215px]" data-name="Picture1 1">
             <div aria-hidden className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 overflow-hidden">
-                <img alt="" className="absolute h-[214.15%] left-[-0.04%] max-w-none top-0 w-[100.07%]" src={imgPicture11} />
+                <img alt="" className="absolute h-[214.15%] left-[-0.04%] max-w-none top-0 w-[100.07%]" src={imgPicture11.src} />
               </div>
               <div className="absolute bg-[rgba(0,0,0,0.5)] inset-0" />
             </div>
@@ -450,7 +450,7 @@ export default function HomepageDhanvantiValley() {
       <Slot />
       <a className="absolute block cursor-pointer h-[66px] left-[21px] top-[35px] w-[331px]" data-name="Dhanvnti Valley Logo_FroLightBG 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[357.31%] left-0 max-w-none top-[-108.86%] w-full" src={imgDhanvntiValleyLogoFroLightBg1} />
+          <img alt="" className="absolute h-[357.31%] left-0 max-w-none top-[-108.86%] w-full" src={imgDhanvntiValleyLogoFroLightBg1.src} />
         </div>
       </a>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] h-[41px] leading-[1.2] left-px not-italic text-[25px] text-white top-[606px] tracking-[-0.5px] w-[93px]">6:4</p>
