@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Playfair_Display, Inter } from "next/font/google";
 import "@/styles/fonts.css";
 import "@/styles/index.css";
 
 const bavicka = localFont({
   src: "../../public/fonts/Bavicka.woff",
   variable: "--font-bavicka",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={bavicka.variable}>
+    <html lang="en" className={`${bavicka.variable} ${playfair.variable} ${inter.variable}`}>
       <body className="antialiased min-h-screen bg-white">
         {children}
       </body>

@@ -79,6 +79,10 @@
 }
 
 @theme inline {
+  --color-gold: #C79A3B;
+  --color-gold-light: #E5BE63;
+  --color-green-dark: #4E6A36;
+  --color-cream: #F8F6EF;
   --font-chopin: 'Chopin-Trial VF', 'Urbanist', sans-serif;
   --font-urbanist: 'Urbanist', sans-serif;
   --font-inter: 'Inter', sans-serif;

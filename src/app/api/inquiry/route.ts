@@ -79,14 +79,14 @@ async function sendNotificationEmail(inquiry: any) {
     await resend.emails.send({
       from: "Dhanvanti Valley Inquiries <inquiries@resend.dev>",
       to: toEmail,
-      subject: `New Inquiry: ${inquiry.project || "General"} - ${inquiry.name}`,
+      subject: `New Inquiry: ${inquiry.firstName} ${inquiry.lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #638038; border-radius: 8px;">
           <h2 style="color: #638038; border-bottom: 2px solid #638038; padding-bottom: 10px; margin-top: 0;">New Inquiry Received</h2>
           <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
             <tr>
               <td style="padding: 8px 0; font-weight: bold; width: 120px; border-bottom: 1px solid #f2f2f2;">Name:</td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f2f2f2;">${inquiry.name}</td>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f2f2f2;">${inquiry.firstName} ${inquiry.lastName}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; font-weight: bold; border-bottom: 1px solid #f2f2f2;">Email:</td>
@@ -96,10 +96,7 @@ async function sendNotificationEmail(inquiry: any) {
               <td style="padding: 8px 0; font-weight: bold; border-bottom: 1px solid #f2f2f2;">Phone:</td>
               <td style="padding: 8px 0; border-bottom: 1px solid #f2f2f2;"><a href="tel:${inquiry.phone}" style="color: #638038; text-decoration: none;">${inquiry.phone}</a></td>
             </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold; border-bottom: 1px solid #f2f2f2;">Project:</td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f2f2f2;">${inquiry.project || "General Inquiry"}</td>
-            </tr>
+
             <tr>
               <td style="padding: 8px 0; font-weight: bold; border-bottom: 1px solid #f2f2f2;">Submitted:</td>
               <td style="padding: 8px 0; border-bottom: 1px solid #f2f2f2;">${formattedDate} (IST)</td>
@@ -131,7 +128,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { name, phone, email, project, message, turnstileToken } = body;
+    const { firstName, lastName, phone, email, message, turnstileToken } = body;
 
     // 2. Validate Turnstile Spam Protection
     if (!turnstileToken) {
@@ -150,7 +147,7 @@ export async function POST(request: Request) {
     }
 
     // 3. Server-side validation using Zod
-    const validation = inquirySchema.safeParse({ name, phone, email, project, message });
+    const validation = inquirySchema.safeParse({ firstName, lastName, phone, email, message });
     if (!validation.success) {
       const errors = validation.error.flatten().fieldErrors;
       return NextResponse.json(
@@ -160,12 +157,12 @@ export async function POST(request: Request) {
     }
 
     // 4. Save to Database via Prisma
+    const fullName = `${firstName} ${lastName}`.trim();
     const newInquiry = await db.inquiry.create({
       data: {
-        name,
+        name: fullName,
         phone,
         email,
-        project: project || null,
         message,
         status: "NEW",
       },

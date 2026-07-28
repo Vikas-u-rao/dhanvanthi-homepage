@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 export const inquirySchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
   phone: z
     .string()
     .min(10, "Phone number must be at least 10 characters")
     .regex(/^[+]?[0-9\s\-()]+$/, "Phone number contains invalid characters"),
   email: z.string().email("Please enter a valid email address"),
-  project: z.string().optional().nullable().or(z.literal('')),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
