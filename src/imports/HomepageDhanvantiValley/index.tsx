@@ -210,7 +210,7 @@ function CardGridContentList() {
   return (
     <div className="absolute bg-[#394d23] content-stretch flex flex-col gap-[48px] h-[727px] items-start left-px p-[48px] top-[1266px] w-[1200px]" data-name="Card Grid Content List">
       <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[8px] items-start left-[64px] not-italic top-[48px] w-[163px]" data-name="Text Content Heading">
-        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#ffd582] text-[16px] tracking-[-0.32px] w-full">WHY DHANVANTI EXISTS</p>
+        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#D8B15A] text-[16px] tracking-[-0.32px] w-full">WHY DHANVANTI EXISTS</p>
         <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#757575] text-[20px] w-full">
           <p className="leading-[1.2]">​</p>
         </div>
@@ -310,11 +310,11 @@ function Group4() {
 function Group7() {
   return (
     <div className="absolute contents left-[577px] top-[1690px]">
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#ffd582] text-[20px] top-[1764px] tracking-[-0.4px] whitespace-nowrap">The 15-Minute Life</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#ffd582] text-[20px] top-[1838px] tracking-[-0.4px] whitespace-nowrap">{` Thoughtfully Designed Residences`}</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#D8B15A] text-[20px] top-[1764px] tracking-[-0.4px] whitespace-nowrap">The 15-Minute Life</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#D8B15A] text-[20px] top-[1838px] tracking-[-0.4px] whitespace-nowrap">{` Thoughtfully Designed Residences`}</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[1042px] not-italic text-[20px] text-white top-[1764px] tracking-[-0.4px] whitespace-nowrap">02</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#ffd582] text-[20px] top-[1690px] tracking-[-0.4px] whitespace-nowrap">Silent Luxury</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#ffd582] text-[20px] top-[1912px] tracking-[-0.4px] whitespace-nowrap">Effortless by Design</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#D8B15A] text-[20px] top-[1690px] tracking-[-0.4px] whitespace-nowrap">Silent Luxury</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[577px] not-italic text-[#D8B15A] text-[20px] top-[1912px] tracking-[-0.4px] whitespace-nowrap">Effortless by Design</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[1042px] not-italic text-[20px] text-white top-[1690px] tracking-[-0.4px] whitespace-nowrap">01</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[1042px] not-italic text-[20px] text-white top-[1912px] tracking-[-0.4px] whitespace-nowrap">04</p>
       <Group4 />
@@ -344,7 +344,7 @@ function CardGridContentList1() {
   return (
     <div className="absolute bg-[#394d23] content-stretch flex flex-col gap-[48px] h-[1875px] items-start left-px px-[64px] py-[48px] top-[5218px] w-[1200px]" data-name="Card Grid Content List">
       <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 w-[74px]" data-name="Text Content Heading">
-        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#ffd582] text-[16px] tracking-[-0.32px] w-full">LIFE INSIDE</p>
+        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#D8B15A] text-[16px] tracking-[-0.32px] w-full">LIFE INSIDE</p>
         <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#757575] text-[20px] w-full">
           <p className="leading-[1.2]">​</p>
         </div>
@@ -483,7 +483,7 @@ function CardGridContentList2() {
   return (
     <div className="absolute bg-[#394d23] content-stretch flex flex-col gap-[48px] h-[866px] items-start left-px p-[64px] top-[8735px] w-[1200px]" data-name="Card Grid Content List">
       <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 w-[111px]" data-name="Text Content Heading">
-        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#ffd582] text-[24px] tracking-[-0.48px] w-full">LOCATION</p>
+        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#D8B15A] text-[24px] tracking-[-0.48px] w-full">LOCATION</p>
         <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#757575] text-[20px] w-full">
           <p className="leading-[1.2]">​</p>
         </div>
@@ -502,11 +502,11 @@ function LocationSection() {
         Further from the noise.
       </p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[65px] not-italic text-[20px] text-white top-[8996px] tracking-[-0.4px] w-[565px]">Set against the Hathibarkala wildlife reserve on the road to Mussoorie — within reach of the city, removed from its weight.</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9178px] tracking-[-0.4px] whitespace-nowrap">{`Welham & Doon School`}</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9252px] tracking-[-0.4px] whitespace-nowrap">Rajpur Road Market</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9178px] tracking-[-0.4px] whitespace-nowrap">{`Welham & Doon School`}</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9252px] tracking-[-0.4px] whitespace-nowrap">Rajpur Road Market</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9178px] tracking-[-0.4px] whitespace-nowrap">9 min</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9104px] tracking-[-0.4px] whitespace-nowrap">Max Super Speciality Hospital</p>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9326px] tracking-[-0.4px] whitespace-nowrap">Mussoorie</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9104px] tracking-[-0.4px] whitespace-nowrap">Max Super Speciality Hospital</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9326px] tracking-[-0.4px] whitespace-nowrap">Mussoorie</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9104px] tracking-[-0.4px] whitespace-nowrap">12 min</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9326px] tracking-[-0.4px] whitespace-nowrap">35 min</p>
       <div className="absolute h-0 left-[65px] top-[9153px] w-[507px]">
@@ -530,7 +530,7 @@ function LocationSection() {
           </svg>
         </div>
       </div>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9400px] tracking-[-0.4px] whitespace-nowrap">Jolly Grant Airport</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9400px] tracking-[-0.4px] whitespace-nowrap">Jolly Grant Airport</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9400px] tracking-[-0.4px] whitespace-nowrap">42 min</p>
       <div className="absolute h-0 left-[65px] top-[9375px] w-[507px]">
         <div className="absolute inset-[-1px_0_0_0]">
@@ -539,7 +539,7 @@ function LocationSection() {
           </svg>
         </div>
       </div>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#ffd582] text-[20px] top-[9472px] tracking-[-0.4px] whitespace-nowrap">Hathibarkala Reserve</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[65px] not-italic text-[#D8B15A] text-[20px] top-[9472px] tracking-[-0.4px] whitespace-nowrap">Hathibarkala Reserve</p>
       <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Medium',sans-serif] leading-[1.2] left-[530px] not-italic text-[20px] text-white top-[9472px] tracking-[-0.4px] whitespace-nowrap">03 min</p>
       <div className="absolute h-0 left-[65px] top-[9447px] w-[507px]">
         <div className="absolute inset-[-1px_0_0_0]">
@@ -649,7 +649,7 @@ function Details() {
 function Group8() {
   return (
     <div className="absolute contents left-[66px] top-[244px]">
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[66px] not-italic text-[#ffd582] text-[24px] top-[244px] tracking-[-0.48px] whitespace-nowrap">Morning Light</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[66px] not-italic text-[#D8B15A] text-[24px] top-[244px] tracking-[-0.48px] whitespace-nowrap">Morning Light</p>
     </div>
   );
 }
@@ -658,7 +658,7 @@ function CardGridContentList4() {
   return (
     <div className="absolute bg-[#394d23] content-stretch flex flex-col gap-[48px] h-[502px] items-start left-px p-[64px] top-[3318px] w-[1200px]" data-name="Card Grid Content List">
       <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 w-[102px]" data-name="Text Content Heading">
-        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#ffd582] text-[16px] tracking-[-0.32px] w-full">SILENT LUXURY</p>
+        <p className="font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] relative shrink-0 text-[#D8B15A] text-[16px] tracking-[-0.32px] w-full">SILENT LUXURY</p>
         <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#757575] text-[20px] w-full">
           <p className="leading-[1.2]">​</p>
         </div>
@@ -724,7 +724,7 @@ function Group17() {
           </div>
         </div>
       </div>
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] h-[29px] leading-[1.2] left-[451px] not-italic text-[#ffd582] text-[24px] top-[3562px] tracking-[-0.48px] w-[215px]">Distance From Noise</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] h-[29px] leading-[1.2] left-[451px] not-italic text-[#D8B15A] text-[24px] top-[3562px] tracking-[-0.48px] w-[215px]">Distance From Noise</p>
     </div>
   );
 }
@@ -863,7 +863,7 @@ function COpyright() {
 function Group18() {
   return (
     <div className="absolute contents left-[832px] top-[3562px]">
-      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[832px] not-italic text-[#ffd582] text-[24px] top-[3562px] tracking-[-0.48px] whitespace-nowrap">Room To Think</p>
+      <p className="[word-break:break-word] absolute font-['Chopin-Trial_VF:Roman',sans-serif] leading-[1.2] left-[832px] not-italic text-[#D8B15A] text-[24px] top-[3562px] tracking-[-0.48px] whitespace-nowrap">Room To Think</p>
     </div>
   );
 }

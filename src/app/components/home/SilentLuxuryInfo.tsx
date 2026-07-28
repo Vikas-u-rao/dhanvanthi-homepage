@@ -20,7 +20,7 @@ export default function SilentLuxuryInfo() {
         
         {/* Section Header */}
         <div className="flex flex-col gap-4">
-          <span className="font-chopin text-[#ffd582] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
+          <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
             Silent Luxury
           </span>
           <h2 className="font-chopin text-[30px] md:text-[36px] font-light leading-tight tracking-[-0.72px] max-w-2xl">
@@ -42,7 +42,7 @@ export default function SilentLuxuryInfo() {
                 idx > 0 ? "border-t border-white/20 pt-6 md:pt-0 md:border-t-0 md:border-l md:border-white/20" : ""
               }`}
             >
-              <h3 className="font-chopin text-[#ffd582] text-[22px] md:text-[24px] font-medium tracking-[-0.48px]">
+              <h3 className="font-chopin text-gold text-[22px] md:text-[24px] font-medium tracking-[-0.48px]">
                 {col.title}
               </h3>
               <p className="font-chopin text-white/90 text-[18px] md:text-[20px] leading-relaxed font-light tracking-[-0.4px]">

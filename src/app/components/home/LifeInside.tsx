@@ -44,7 +44,7 @@ export default function LifeInside() {
 
         {/* Section Header */}
         <div className="flex flex-col gap-4">
-          <span className="font-chopin text-[#ffd582] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
+          <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
             Life Inside
           </span>
           <h2 className="font-chopin text-[28px] md:text-[36px] font-light leading-tight tracking-[-0.72px] max-w-xl">

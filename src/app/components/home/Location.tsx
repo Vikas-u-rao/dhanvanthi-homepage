@@ -19,7 +19,7 @@ export default function Location() {
 
           {/* Header */}
           <div className="flex flex-col gap-4">
-            <span className="font-chopin text-[#ffd582] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
+            <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
               Location
             </span>
             <h2 className="font-chopin text-[28px] md:text-[36px] font-light leading-tight tracking-[-0.72px] max-w-xl">
@@ -38,7 +38,7 @@ export default function Location() {
                 key={idx}
                 className="w-full flex justify-between items-center py-4 border-t border-white/20 px-2 font-chopin text-[18px] md:text-[20px] font-light tracking-[-0.4px] hover:bg-white/5 transition-all duration-300"
               >
-                <span className="text-[#ffd582]">
+                <span className="text-gold">
                   {item.destination}
                 </span>
                 <span className="text-white font-medium">

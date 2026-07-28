@@ -6,13 +6,11 @@ import {
   Download, 
   LogOut, 
   Search, 
-  Filter, 
   ChevronRight, 
   ChevronDown, 
   Mail, 
   Phone, 
   Calendar,
-  Building,
   User,
   Clock,
   Eye,
@@ -24,7 +22,7 @@ interface Inquiry {
   name: string;
   phone: string;
   email: string;
-  project: string | null;
+
   message: string;
   status: "NEW" | "CONTACTED" | "CLOSED";
   createdAt: string;
@@ -39,7 +37,7 @@ export default function AdminInquiriesPage() {
   const [expandedInquiries, setExpandedInquiries] = useState<Record<string, boolean>>({});
 
   // Filters & Sorting state
-  const [filterProject, setFilterProject] = useState<string>("all");
+
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortByDate, setSortByDate] = useState<"desc" | "asc">("desc");
@@ -156,19 +154,9 @@ export default function AdminInquiriesPage() {
     }));
   };
 
-  // Deduplicate project list for filters
-  const availableProjects = Array.from(
-    new Set(inquiries.map(item => item.project).filter(Boolean))
-  ) as string[];
-
   // Filtered & Sorted Inquiries
   const filteredInquiries = inquiries
     .filter(item => {
-      const matchesProject = 
-        filterProject === "all" || 
-        (filterProject === "general" && !item.project) ||
-        item.project === filterProject;
-
       const matchesStatus = 
         filterStatus === "all" || 
         item.status === filterStatus;
@@ -179,7 +167,7 @@ export default function AdminInquiriesPage() {
         item.phone.includes(searchQuery) ||
         item.message.toLowerCase().includes(searchQuery.toLowerCase());
 
-      return matchesProject && matchesStatus && matchesSearch;
+      return matchesStatus && matchesSearch;
     })
     .sort((a, b) => {
       const dateA = new Date(a.createdAt).getTime();
@@ -199,12 +187,11 @@ export default function AdminInquiriesPage() {
       return `"${str.replace(/"/g, '""')}"`;
     };
 
-    const headers = ["Name", "Phone", "Email", "Project", "Message", "Status", "Date"];
+    const headers = ["Name", "Phone", "Email", "Message", "Status", "Date"];
     const rows = filteredInquiries.map(inq => [
       escapeCsv(inq.name),
       escapeCsv(inq.phone),
       escapeCsv(inq.email),
-      escapeCsv(inq.project || "General Inquiry"),
       escapeCsv(inq.message),
       escapeCsv(inq.status),
       escapeCsv(new Date(inq.createdAt).toLocaleString("en-IN")),
@@ -310,22 +297,6 @@ export default function AdminInquiriesPage() {
               />
             </div>
 
-            {/* Filter Project */}
-            <div className="flex items-center gap-2">
-              <Filter className="text-gray-400 size-4 hidden sm:block" />
-              <select
-                value={filterProject}
-                onChange={(e) => setFilterProject(e.target.value)}
-                className="bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:border-[#638038] focus:outline-hidden text-gray-700 cursor-pointer"
-              >
-                <option value="all">All Projects</option>
-                <option value="general">General Inquiries</option>
-                {availableProjects.map(proj => (
-                  <option key={proj} value={proj}>{proj}</option>
-                ))}
-              </select>
-            </div>
-
             {/* Filter Status */}
             <select
               value={filterStatus}
@@ -369,7 +340,7 @@ export default function AdminInquiriesPage() {
             </div>
           ) : filteredInquiries.length === 0 ? (
             <div className="flex-grow flex flex-col items-center justify-center py-24 text-gray-400 gap-2 select-none">
-              <Building className="size-12 opacity-50" />
+              <User className="size-12 opacity-50" />
               <p className="font-semibold text-lg">No inquiries match your criteria</p>
               <p className="text-sm">Try widening your filters or search terms.</p>
             </div>
@@ -379,7 +350,6 @@ export default function AdminInquiriesPage() {
                 <thead>
                   <tr className="bg-gray-50/70 border-b border-gray-200 text-gray-500 font-semibold text-[13px] uppercase select-none">
                     <th className="py-4 px-6 font-bold">Contact / Submitter</th>
-                    <th className="py-4 px-6 font-bold">Project Phase</th>
                     <th className="py-4 px-6 font-bold">Message Content</th>
                     <th className="py-4 px-6 font-bold">Status Status</th>
                     <th className="py-4 px-6 font-bold">Date Received</th>
@@ -426,18 +396,6 @@ export default function AdminInquiriesPage() {
                               </a>
                             </div>
                           </div>
-                        </td>
-
-                        {/* Project Phase */}
-                        <td className="py-4 px-6 select-none">
-                          {inq.project ? (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-[#f2f6df] text-[#638038] border border-[#638038]/20">
-                              <Building className="size-3" />
-                              <span>{inq.project}</span>
-                            </span>
-                          ) : (
-                            <span className="text-gray-400 text-xs italic">General Enquiry</span>
-                          )}
                         </td>
 
                         {/* Message content */}
