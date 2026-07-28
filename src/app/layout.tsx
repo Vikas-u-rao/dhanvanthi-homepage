@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "@/styles/fonts.css";
 import "@/styles/index.css";
+
+const bavicka = localFont({
+  src: "../../public/fonts/Bavicka.woff",
+  variable: "--font-bavicka",
+});
 
 export const metadata: Metadata = {
   title: "Dhanvanti Valley",
@@ -13,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={bavicka.variable}>
       <body className="antialiased min-h-screen bg-white">
         {children}
       </body>

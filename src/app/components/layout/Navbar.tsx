@@ -12,15 +12,35 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (sectionId: string) => {
-    // Disabled for initial hosting preview
+    setIsOpen(false);
+    if (sectionId === "brochure") {
+      onNavigate("enquiry");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    
+    if (currentPage !== "home") {
+      onNavigate("home");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleEnquireClick = () => {
-    // Disabled for initial hosting preview
+    setIsOpen(false);
+    onNavigate("enquiry");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleLogoClick = () => {
-    // Disabled for initial hosting preview
+    setIsOpen(false);
+    onNavigate("home");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -42,7 +62,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         <nav className="flex items-center gap-2">
           <button 
             onClick={() => handleNavClick("philosophy")}
-            className="bg-[#f5f5f5] cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-gray-200"
+            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
           >
             Philosophy
           </button>
@@ -100,7 +120,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <nav className="flex flex-col gap-4 mt-4">
               <button 
                 onClick={() => handleNavClick("philosophy")}
-                className="w-full text-left py-2 px-3 rounded-[8px] bg-gray-50 font-chopin text-[#2c2c2c] text-[18px] transition-all"
+                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[18px] transition-all hover:bg-gray-50"
               >
                 Philosophy
               </button>
