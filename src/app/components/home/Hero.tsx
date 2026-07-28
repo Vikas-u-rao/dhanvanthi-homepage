@@ -73,16 +73,18 @@ export default function Hero() {
               />
             </div>
 
-            {/* Cursive text block & Subtitle */}
+            {/* Text block & Subtitle */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[1200px] h-full pointer-events-none z-20">
-              <div className="absolute right-[91px] top-[92px] text-right font-bavicka text-[#638038] text-[40px] leading-[1.2] w-[783px] pointer-events-auto">
-                Time is the real <br /> luxury
+              <div className="absolute right-[91px] top-[92px] flex flex-col items-end text-right pointer-events-auto">
+                <div className="font-bavicka text-[#638038] text-[40px] leading-[1.2] whitespace-nowrap">
+                  Time is the real luxury
+                </div>
+                <p className="font-chopin text-[#638038] text-[20px] leading-relaxed w-[530px] tracking-[-0.4px] mt-4">
+                  Dhanvanti Valley — luxury residences in Dehradun,
+                  <br />
+                  where the rarest privilege is getting your evenings back.
+                </p>
               </div>
-              <p className="absolute right-[91px] top-[165px] text-right font-chopin text-[#638038] text-[20px] leading-relaxed w-[530px] tracking-[-0.4px] mt-2 pointer-events-auto">
-                Dhanvanti Valley — luxury residences in Dehradun,
-                <br />
-                where the rarest privilege is getting your evenings back.
-              </p>
             </div>
 
           </div>

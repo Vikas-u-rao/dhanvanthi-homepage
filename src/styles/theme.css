@@ -79,8 +79,7 @@
 }
 
 @theme inline {
-  --font-chopin: 'Chopin-Trial VF', 'Cormorant Garamond', Georgia, serif;
-  --font-bavicka: 'Bavicka', 'Dancing Script', cursive;
+  --font-chopin: 'Chopin-Trial VF', 'Urbanist', sans-serif;
   --font-urbanist: 'Urbanist', sans-serif;
   --font-inter: 'Inter', sans-serif;
   --color-background: var(--background);

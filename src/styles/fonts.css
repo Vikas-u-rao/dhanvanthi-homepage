@@ -3,25 +3,27 @@
 /* Map Figma design font names to loaded Google Font alternatives */
 @font-face {
   font-family: 'Chopin-Trial VF';
-  src: local('Cormorant Garamond'), local('CormorantGaramond');
+  src: local('Urbanist'), local('Urbanist-Regular');
   font-weight: 300 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Chopin-Trial VF';
-  src: local('Cormorant Garamond Medium'), local('CormorantGaramond-Medium');
+  src: local('Urbanist Medium'), local('Urbanist-Medium');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Chopin-Trial VF';
-  src: local('Cormorant Garamond SemiBold'), local('CormorantGaramond-SemiBold');
+  src: local('Urbanist SemiBold'), local('Urbanist-SemiBold');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: 'Bavicka';
-  src: local('Dancing Script'), local('DancingScript');
+  src: url('./fonts/Bavicka.woff') format('woff'),
+       url('./fonts/Bavicka.ttf') format('truetype'),
+       url('./fonts/Bavicka.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }

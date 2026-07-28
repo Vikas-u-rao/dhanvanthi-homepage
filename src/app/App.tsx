@@ -37,22 +37,30 @@ export default function App() {
       {/* Toast notifications handler */}
       <Toaster position="top-right" richColors />
 
-      {/* Font fallback overrides for Chopin and Bavicka (maps clean naming structure to variables) */}
       <style>{`
+        @font-face {
+          font-family: 'Bavicka';
+          src: url('/fonts/Bavicka.woff') format('woff'),
+               url('/fonts/Bavicka.ttf') format('truetype'),
+               url('/fonts/Bavicka.otf') format('opentype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
         body {
-          font-family: var(--font-chopin), 'Cormorant Garamond', Georgia, serif;
+          font-family: 'Chopin-Trial VF', 'Urbanist', sans-serif;
         }
         .font-chopin {
-          font-family: var(--font-chopin), 'Cormorant Garamond', Georgia, serif;
+          font-family: 'Chopin-Trial VF', 'Urbanist', sans-serif;
         }
         .font-bavicka {
-          font-family: var(--font-bavicka), 'Dancing Script', cursive;
+          font-family: 'Bavicka', 'Dancing Script', cursive;
         }
         .font-urbanist {
-          font-family: var(--font-urbanist), 'Urbanist', sans-serif;
+          font-family: 'Urbanist', sans-serif;
         }
         .font-inter {
-          font-family: var(--font-inter), 'Inter', sans-serif;
+          font-family: 'Inter', sans-serif;
         }
       `}</style>
 
@@ -64,7 +72,6 @@ export default function App() {
         {page === "home" ? (
           <div className="w-full flex flex-col">
             <Hero />
-            {/* Commented out for initial launch preview
             <WhyDhanvanti />
             <SilentLuxuryMap />
             <SilentLuxuryInfo />
@@ -73,15 +80,12 @@ export default function App() {
             <Gallery />
             <Location />
             <DetailsBar />
-            */}
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
         ) : (
           <div className="w-full flex flex-col">
-            {/* Commented out for initial launch preview
             <EnquiryPage />
             <DetailsBar />
-            */}
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
         )}
