@@ -90,30 +90,30 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               />
             </div>
 
-            {/* Text block & Subtitle (shifted slightly left to right-[135px] for clean alignment) */}
+            {/* Text block & Subtitle (shifted up to top-[42px] to remove top whitespace & title enlarged to 44px) */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[1200px] h-full pointer-events-none z-20">
-              <div className="absolute right-[135px] top-[75px] flex flex-col items-end text-right pointer-events-auto">
+              <div className="absolute right-[135px] top-[42px] flex flex-col items-end text-right pointer-events-auto">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#f2f6df] text-[#638038] font-inter text-xs font-semibold rounded-full mb-3">
                   📍 Hathibarkala, Dehradun | 2, 3 &amp; 4 BHK Luxury Residences
                 </span>
-                <p className="font-chopin text-[#638038] text-[36px] font-medium leading-[1.25] tracking-[-0.5px]">
+                <p className="font-chopin text-[#638038] text-[44px] font-medium leading-[1.15] tracking-[-0.6px]">
                   Luxury, Rooted in Nature
                 </p>
-                <p className="font-inter text-[#394d23] text-[15px] leading-relaxed w-[480px] mt-3">
+                <p className="font-inter text-[#394d23] text-[16px] leading-relaxed w-[520px] mt-3">
                   Luxury Apartments in Dehradun, Designed for a Life Well Lived. Contemporary architecture, lush green landscapes, and breathtaking mountain views.
                 </p>
                 <div className="flex items-center gap-3 mt-5">
                   <button
                     onClick={handleEnquire}
                     aria-label="Open enquiry form to schedule a site visit"
-                    className="bg-[#638038] hover:bg-[#536c2e] text-white px-5.5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
+                    className="bg-[#638038] hover:bg-[#536c2e] text-white px-6 py-3 rounded-lg font-inter text-sm font-medium transition-all shadow-sm cursor-pointer"
                   >
                     Schedule a Site Visit
                   </button>
                   <button 
                     onClick={handleBrochure}
                     aria-label="View floor plans and download brochure"
-                    className="bg-[#ca9731] hover:bg-[#b08125] text-white px-5.5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
+                    className="bg-[#ca9731] hover:bg-[#b08125] text-white px-6 py-3 rounded-lg font-inter text-sm font-medium transition-all shadow-sm cursor-pointer"
                   >
                     Download Brochure
                   </button>
