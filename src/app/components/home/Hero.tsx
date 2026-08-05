@@ -45,11 +45,11 @@ export default function Hero({ onEnquireClick }: HeroProps) {
       {/* Visually hidden H1 for SEO — the Bavicka tagline serves as the visual hero heading */}
       <h1 className="sr-only">Luxury Apartments in Dehradun — Dhanvanti Valley, Hathibarkala</h1>
 
-      {/* 1. Top Hero Image Banner (Full Width Edge-to-Edge, cropping out bottom details bar) */}
-      <div className="w-full aspect-[1200/380] relative overflow-hidden select-none">
+      {/* 1. Top Hero Image Banner (Full Width Edge-to-Edge, cropping top logo and bottom details bar) */}
+      <div className="w-full aspect-[1200/360] relative overflow-hidden select-none">
         <img 
-          alt="Dhanvanti Valley exterior view with lush green surroundings, Hathibarkala, Dehradun" 
-          className="w-full h-[118%] object-cover object-top -mt-[2%]" 
+          alt="Dhanvanti Valley exterior architectural facade surrounded by Dehradun hills, Hathibarkala" 
+          className="w-full h-[140%] object-cover object-[center_38%] -mt-[14%]" 
           src={imgHeroBasic.src} 
         />
       </div>
@@ -90,30 +90,30 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               />
             </div>
 
-            {/* Text block & Subtitle */}
+            {/* Text block & Subtitle (shifted slightly left to right-[135px] for clean alignment) */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[1200px] h-full pointer-events-none z-20">
-              <div className="absolute right-[91px] top-[75px] flex flex-col items-end text-right pointer-events-auto">
+              <div className="absolute right-[135px] top-[75px] flex flex-col items-end text-right pointer-events-auto">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#f2f6df] text-[#638038] font-inter text-xs font-semibold rounded-full mb-3">
                   📍 Hathibarkala, Dehradun | 2, 3 &amp; 4 BHK Luxury Residences
                 </span>
                 <p className="font-chopin text-[#638038] text-[36px] font-medium leading-[1.25] tracking-[-0.5px]">
                   Luxury, Rooted in Nature
                 </p>
-                <p className="font-inter text-[#394d23] text-[15px] leading-relaxed w-[500px] mt-3">
+                <p className="font-inter text-[#394d23] text-[15px] leading-relaxed w-[480px] mt-3">
                   Luxury Apartments in Dehradun, Designed for a Life Well Lived. Contemporary architecture, lush green landscapes, and breathtaking mountain views.
                 </p>
                 <div className="flex items-center gap-3 mt-5">
                   <button
                     onClick={handleEnquire}
                     aria-label="Open enquiry form to schedule a site visit"
-                    className="bg-[#638038] hover:bg-[#536c2e] text-white px-5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
+                    className="bg-[#638038] hover:bg-[#536c2e] text-white px-5.5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
                   >
                     Schedule a Site Visit
                   </button>
                   <button 
                     onClick={handleBrochure}
                     aria-label="View floor plans and download brochure"
-                    className="bg-[#ca9731] hover:bg-[#b08125] text-white px-5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
+                    className="bg-[#ca9731] hover:bg-[#b08125] text-white px-5.5 py-2.5 rounded-lg font-inter text-sm transition-all shadow-sm cursor-pointer"
                   >
                     Download Brochure
                   </button>
