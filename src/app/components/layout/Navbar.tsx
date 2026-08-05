@@ -1,15 +1,42 @@
+"use client";
+
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Instagram, Facebook, Youtube } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/app/components/ui/sheet";
 import imgDhanvntiValleyLogoFroLightBg1 from "@/imports/HomepageDhanvantiValley/061091c707bc10070bcb7df114ead0673c2febb9.png";
+import { activeSocialLinks, type SocialLink } from "@/lib/social";
 
 interface NavbarProps {
   currentPage: "home" | "enquiry";
   onNavigate: (page: "home" | "enquiry") => void;
 }
 
+function NavSocialIcon({ link }: { link: SocialLink }) {
+  const iconMap = {
+    instagram: <Instagram className="w-3.5 h-3.5" aria-hidden="true" />,
+    facebook: <Facebook className="w-3.5 h-3.5" aria-hidden="true" />,
+    youtube: <Youtube className="w-3.5 h-3.5" aria-hidden="true" />,
+    twitter: null,
+    linkedin: null,
+  };
+  const icon = iconMap[link.icon];
+  if (!icon) return null;
+  return (
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Dhanvanti Valley on ${link.label}`}
+      className="w-7 h-7 rounded-full border border-[#638038]/25 flex items-center justify-center text-[#638038]/70 hover:text-[#638038] hover:border-[#638038]/60 transition-all duration-200"
+    >
+      {icon}
+    </a>
+  );
+}
+
 export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const socialLinks = activeSocialLinks();
 
   const handleNavClick = (sectionId: string) => {
     setIsOpen(false);
@@ -45,42 +72,59 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-[#ececf0] px-4 md:px-8 py-3 md:py-4 flex justify-between items-center transition-all duration-300">
-      {/* Brand Logo Wrapper (Maintains original Figma crop styling) */}
+      {/* Brand Logo — select-none retained on logo only (decorative/brand mark) */}
       <div 
         onClick={handleLogoClick}
+        role="button"
+        aria-label="Go to Dhanvanti Valley homepage"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && handleLogoClick()}
         className="relative overflow-hidden cursor-pointer w-[180px] h-[36px] md:w-[331px] md:h-[66px] select-none"
       >
         <img 
-          alt="Dhanvanti Valley Logo" 
+          alt="Dhanvanti Valley" 
           className="absolute max-w-none w-full h-[357.31%] left-0 top-[-108.86%] object-contain" 
           src={imgDhanvntiValleyLogoFroLightBg1.src} 
         />
       </div>
 
-      {/* Desktop Navigation Links & Enquire CTA Grouped on the Right */}
-      <div className="hidden md:flex items-center gap-6">
-        <nav className="flex items-center gap-2">
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center gap-4">
+        {/* Subtle social icons — only renders when URLs are configured in src/lib/social.ts */}
+        {socialLinks.length > 0 && (
+          <div className="flex items-center gap-1.5 mr-2" aria-label="Follow us on social media">
+            {socialLinks.map((link) => (
+              <NavSocialIcon key={link.icon} link={link} />
+            ))}
+          </div>
+        )}
+
+        <nav className="flex items-center gap-1" aria-label="Main navigation">
           <button 
             onClick={() => handleNavClick("philosophy")}
-            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+            aria-label="Go to Philosophy section"
+            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
           >
             Philosophy
           </button>
           <button 
             onClick={() => handleNavClick("gallery")}
-            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+            aria-label="Go to Gallery section"
+            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
           >
             Gallery
           </button>
           <button 
             onClick={() => handleNavClick("location")}
-            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+            aria-label="Go to Location section"
+            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
           >
             Location
           </button>
           <button 
             onClick={() => handleNavClick("brochure")}
-            className="cursor-pointer px-4 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[16px] transition-all hover:bg-[#f5f5f5]"
+            aria-label="Download brochure — opens enquiry form"
+            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
           >
             Brochure
           </button>
@@ -88,18 +132,22 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
 
         <button 
           onClick={handleEnquireClick}
-          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer px-5 py-2 rounded-[8px] font-inter font-normal text-[15px] transition-all"
+          aria-label="Open enquiry form"
+          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer px-5 py-2 rounded-[8px] font-inter font-normal text-[14px] transition-all"
         >
           Enquire Now
         </button>
       </div>
 
-      {/* Mobile Menu Toggle (Sheet) */}
+      {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <button className="p-2 cursor-pointer text-[#638038] hover:bg-gray-100 rounded-md transition-all">
-              <Menu className="size-6" />
+            <button 
+              className="p-2 cursor-pointer text-[#638038] hover:bg-gray-100 rounded-md transition-all"
+              aria-label="Open navigation menu"
+            >
+              <Menu className="size-6" aria-hidden="true" />
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[280px] p-6 flex flex-col gap-6 bg-white border-l border-gray-100">
@@ -107,47 +155,52 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <div className="flex justify-between items-center border-b border-gray-100 pb-4">
               <div 
                 onClick={() => { setIsOpen(false); handleLogoClick(); }}
-                className="relative overflow-hidden cursor-pointer w-[150px] h-[30px]"
+                role="button"
+                aria-label="Go to homepage"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && handleLogoClick()}
+                className="relative overflow-hidden cursor-pointer w-[150px] h-[30px] select-none"
               >
                 <img 
-                  alt="Dhanvanti Valley Logo" 
+                  alt="Dhanvanti Valley" 
                   className="absolute max-w-none w-full h-[357.31%] left-0 top-[-108.86%] object-contain" 
                   src={imgDhanvntiValleyLogoFroLightBg1.src} 
                 />
               </div>
             </div>
 
-            <nav className="flex flex-col gap-4 mt-4">
+            <nav className="flex flex-col gap-3 mt-2" aria-label="Mobile navigation">
               <button 
                 onClick={() => handleNavClick("philosophy")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[18px] transition-all hover:bg-gray-50"
+                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
               >
                 Philosophy
               </button>
               <button 
                 onClick={() => handleNavClick("gallery")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[18px] transition-all hover:bg-gray-50"
+                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
               >
                 Gallery
               </button>
               <button 
                 onClick={() => handleNavClick("location")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[18px] transition-all hover:bg-gray-50"
+                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
               >
                 Location
               </button>
               <button 
                 onClick={() => handleNavClick("brochure")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[18px] transition-all hover:bg-gray-50"
+                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
               >
                 Brochure
               </button>
             </nav>
 
-            <div className="mt-auto border-t border-gray-100 pt-6">
+            <div className="mt-auto border-t border-gray-100 pt-5">
               <button 
                 onClick={handleEnquireClick}
-                className="w-full bg-[#638038] text-white text-center py-3 rounded-[8px] font-inter font-normal text-[16px] transition-all hover:bg-[#536c2e]"
+                aria-label="Open enquiry form"
+                className="w-full bg-[#638038] text-white text-center py-3 rounded-[8px] font-inter font-normal text-[15px] transition-all hover:bg-[#536c2e]"
               >
                 Enquire Now
               </button>

@@ -1,13 +1,13 @@
 export default function WhyDhanvanti() {
   const philosophies = [
-    { num: "01", title: "Silent Luxury" },
-    { num: "02", title: "The 15-Minute Life" },
-    { num: "03", title: "Thoughtfully Designed Residences" },
-    { num: "04", title: "Effortless by Design" }
+    { num: "01", title: "Silent Luxury", targetId: "silent-luxury" },
+    { num: "02", title: "The 15-Minute Life", targetId: "location" },
+    { num: "03", title: "Thoughtfully Designed Residences", targetId: "architecture" },
+    { num: "04", title: "Effortless by Design", targetId: "life-inside" }
   ];
 
-  const handleScrollToSilentLuxury = () => {
-    const el = document.getElementById("silent-luxury");
+  const handleScrollToSection = (targetId: string) => {
+    const el = document.getElementById(targetId);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -45,23 +45,16 @@ export default function WhyDhanvanti() {
           {/* Numbered Philosophy Tenets */}
           <div className="w-full flex flex-col mt-4">
             {philosophies.map((item, index) => {
-              const isSilentLuxury = item.title === "Silent Luxury";
               return (
                 <div
                   key={index}
-                  onClick={isSilentLuxury ? handleScrollToSilentLuxury : undefined}
-                  className={`w-full flex justify-between items-center py-5 border-t border-white/20 px-2 transition-all duration-300 ${
-                    isSilentLuxury ? "hover:bg-white/5 group cursor-pointer" : ""
-                  }`}
+                  onClick={() => handleScrollToSection(item.targetId)}
+                  className="w-full flex justify-between items-center py-5 border-t border-white/20 px-2 transition-all duration-300 hover:bg-white/5 group cursor-pointer"
                 >
-                  <span className={`font-chopin text-[18px] md:text-[20px] text-gold font-medium ${
-                    isSilentLuxury ? "group-hover:text-[#e6c87a] transition-colors duration-300" : ""
-                  }`}>
+                  <span className="font-chopin text-[18px] md:text-[20px] text-gold font-medium group-hover:text-[#e6c87a] transition-colors duration-300">
                     {item.title}
                   </span>
-                  <span className={`font-chopin text-[18px] md:text-[20px] text-white/50 font-medium ${
-                    isSilentLuxury ? "group-hover:text-white transition-colors duration-300" : ""
-                  }`}>
+                  <span className="font-chopin text-[18px] md:text-[20px] text-white/50 font-medium group-hover:text-white transition-colors duration-300">
                     {item.num}
                   </span>
                 </div>
@@ -76,3 +69,4 @@ export default function WhyDhanvanti() {
     </section>
   );
 }
+

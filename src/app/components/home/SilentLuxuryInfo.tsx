@@ -45,7 +45,7 @@ export default function SilentLuxuryInfo() {
               <h3 className="font-chopin text-gold text-[22px] md:text-[24px] font-medium tracking-[-0.48px]">
                 {col.title}
               </h3>
-              <p className="font-chopin text-white/90 text-[18px] md:text-[20px] leading-relaxed font-light tracking-[-0.4px]">
+              <p className="font-chopin text-white/90 text-[16px] md:text-[17px] leading-relaxed font-light tracking-[-0.3px]">
                 {col.description}
               </p>
             </div>

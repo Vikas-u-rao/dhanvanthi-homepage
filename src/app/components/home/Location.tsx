@@ -26,7 +26,7 @@ export default function Location() {
               Closer to everything. <br />
               Further from the noise.
             </h2>
-            <p className="font-chopin text-[18px] md:text-[20px] text-white/90 leading-relaxed font-light tracking-[-0.4px] mt-2">
+            <p className="font-chopin text-[16px] md:text-[17px] text-white/90 leading-relaxed font-light tracking-[-0.3px] mt-2">
               Set against the Hathibarkala wildlife reserve on the road to Mussoorie — within reach of the city, removed from its weight.
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Location() {
             {travelTimes.map((item, idx) => (
               <div
                 key={idx}
-                className="w-full flex justify-between items-center py-4 border-t border-white/20 px-2 font-chopin text-[18px] md:text-[20px] font-light tracking-[-0.4px] hover:bg-white/5 transition-all duration-300"
+                className="w-full flex justify-between items-center py-4 border-t border-white/20 px-2 font-chopin text-[16px] md:text-[17px] font-light tracking-[-0.3px] hover:bg-white/5 transition-all duration-300"
               >
                 <span className="text-gold">
                   {item.destination}

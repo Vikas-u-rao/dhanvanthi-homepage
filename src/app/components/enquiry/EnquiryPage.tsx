@@ -15,7 +15,6 @@ export default function EnquiryPage() {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm<ClientInquiryInput>({
@@ -100,12 +99,21 @@ export default function EnquiryPage() {
                   Thank you for your interest in Dhanvanti Valley. Our sales experts have received your request and will get in touch with you shortly via phone or email.
                 </p>
               </div>
-              <button
-                onClick={() => setIsSuccess(false)}
-                className="mt-4 bg-[#638038] hover:bg-[#536c2e] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer"
-              >
-                Submit Another Inquiry
-              </button>
+              <div className="flex flex-col gap-3 sm:flex-row items-center mt-4">
+                <a
+                  href="/brochure.pdf"
+                  download="Dhanvanti_Valley_Brochure.pdf"
+                  className="bg-[#ca9731] hover:bg-[#b08125] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer flex items-center gap-2"
+                >
+                  Download E-Brochure (PDF)
+                </a>
+                <button
+                  onClick={() => setIsSuccess(false)}
+                  className="bg-[#638038] hover:bg-[#536c2e] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
             </div>
           ) : (
             <>
