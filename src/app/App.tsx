@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Toaster } from "sonner";
 import Navbar from "@/app/components/layout/Navbar";
 import Footer from "@/app/components/layout/Footer";
@@ -26,12 +26,43 @@ import EnquiryPage from "@/app/components/enquiry/EnquiryPage";
 export default function App() {
   const [page, setPage] = useState<"home" | "enquiry">("home");
 
+  // Sync browser back/forward history buttons with enquiry page state
+  useEffect(() => {
+    const handlePopState = () => {
+      if (window.location.hash === "#enquiry") {
+        setPage("enquiry");
+      } else {
+        setPage("home");
+      }
+    };
+
+    // Check hash on initial mount
+    if (window.location.hash === "#enquiry") {
+      setPage("enquiry");
+    }
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
   const handleNavigate = (targetPage: "home" | "enquiry") => {
     setPage(targetPage);
+    if (targetPage === "enquiry") {
+      if (window.location.hash !== "#enquiry") {
+        window.history.pushState({ page: "enquiry" }, "", "#enquiry");
+      }
+    } else {
+      if (window.location.hash === "#enquiry") {
+        window.history.pushState({ page: "home" }, "", window.location.pathname);
+      }
+    }
   };
 
   const handleEnquireClick = () => {
     setPage("enquiry");
+    if (window.location.hash !== "#enquiry") {
+      window.history.pushState({ page: "enquiry" }, "", "#enquiry");
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
