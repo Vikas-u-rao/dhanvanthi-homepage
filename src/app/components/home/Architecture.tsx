@@ -4,8 +4,8 @@ import imgRectangle6 from "@/imports/HomepageDhanvantiValley/a3658af04e647e6e2a4
 
 export default function Architecture() {
   return (
-    <section className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 select-none">
+    <section id="architecture" className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
         {/* Title and Intro */}
         <div className="flex flex-col gap-4">
@@ -29,7 +29,7 @@ export default function Architecture() {
             {/* Left Image */}
             <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
               <img
-                alt="Architecture Close-up Left"
+                alt="Dhanvanti Valley residential building facade — left elevation"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 src={imgRectangle6.src}
               />
@@ -38,7 +38,7 @@ export default function Architecture() {
             {/* Right Image */}
             <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
               <img
-                alt="Architecture Close-up Right"
+                alt="Dhanvanti Valley residential building facade — right elevation"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 src={imgRectangle5.src}
               />
@@ -48,7 +48,7 @@ export default function Architecture() {
           {/* Bottom Row: Wide banner image */}
           <div className="w-full aspect-[16/9] md:h-[535px] overflow-hidden rounded-lg shadow-sm">
             <img
-              alt="Architecture View Wide"
+              alt="Dhanvanti Valley panoramic exterior view surrounded by Dehradun greenery"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
               src={imgRectangle3.src}
             />

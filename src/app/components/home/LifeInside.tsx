@@ -39,8 +39,8 @@ export default function LifeInside() {
   ];
 
   return (
-    <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-16 select-none">
+    <section id="life-inside" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
 
         {/* Section Header */}
         <div className="flex flex-col gap-4">
@@ -75,7 +75,7 @@ export default function LifeInside() {
                 <h3 className="font-chopin text-[22px] md:text-[25px] font-medium tracking-[-0.5px]">
                   {item.title}
                 </h3>
-                <p className="font-chopin text-white/90 text-[18px] md:text-[20px] leading-relaxed font-light tracking-[-0.4px]">
+                <p className="font-chopin text-white/90 text-[16px] md:text-[17px] leading-relaxed font-light tracking-[-0.3px]">
                   {item.description}
                 </p>
               </div>

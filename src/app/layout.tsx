@@ -22,9 +22,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dhanvanti Valley",
-  description: "Interested in this project? Fill out the form, and our real estate experts will get back to you with more details.",
-  robots: "noindex, nofollow",
+  title: "Luxury Apartments in Dehradun | Dhanvanti Valley",
+  description:
+    "Discover Dhanvanti Valley, premium luxury residences in Hathibarkala, Dehradun, thoughtfully designed for comfort, privacy, nature, and modern living.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Dhanvanti Valley",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Hathibarkala Road",
+    addressLocality: "Dehradun",
+    addressRegion: "Uttarakhand",
+    addressCountry: "IN",
+  },
+  telephone: "+91-73985-73985",
+  description:
+    "Premium luxury residences in Hathibarkala, Dehradun. 2, 3 & 4 BHK apartments designed for comfort, privacy, and modern living. RERA: UKRE03260000729.",
 };
 
 export default function RootLayout({
@@ -34,6 +58,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bavicka.variable} ${playfair.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className="antialiased min-h-screen bg-white">
         {children}
       </body>

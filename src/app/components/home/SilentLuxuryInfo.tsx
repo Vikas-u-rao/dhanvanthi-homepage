@@ -15,8 +15,8 @@ export default function SilentLuxuryInfo() {
   ];
 
   return (
-    <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 select-none">
+    <section id="silent-luxury" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12">
         
         {/* Section Header */}
         <div className="flex flex-col gap-4">
@@ -45,7 +45,7 @@ export default function SilentLuxuryInfo() {
               <h3 className="font-chopin text-gold text-[22px] md:text-[24px] font-medium tracking-[-0.48px]">
                 {col.title}
               </h3>
-              <p className="font-chopin text-white/90 text-[18px] md:text-[20px] leading-relaxed font-light tracking-[-0.4px]">
+              <p className="font-chopin text-white/90 text-[16px] md:text-[17px] leading-relaxed font-light tracking-[-0.3px]">
                 {col.description}
               </p>
             </div>

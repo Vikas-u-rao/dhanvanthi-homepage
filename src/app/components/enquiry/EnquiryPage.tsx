@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { clientInquirySchema, type ClientInquiryInput } from "@/lib/validation";
-import { Turnstile } from "@marsidev/react-turnstile";
 import { toast } from "sonner";
 import { CheckCircle2, RefreshCw } from "lucide-react";
 
@@ -12,12 +11,10 @@ export default function EnquiryPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [agreed, setAgreed] = useState(false);
-  const turnstileRef = useRef<any>(null);
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm<ClientInquiryInput>({
@@ -28,7 +25,6 @@ export default function EnquiryPage() {
       email: "",
       phone: "",
       message: "",
-      turnstileToken: "",
     },
   });
 
@@ -65,29 +61,22 @@ export default function EnquiryPage() {
         toast.error(result.message || "Failed to send enquiry. Please try again.", {
           id: toastId,
         });
-        setValue("turnstileToken", "");
-        turnstileRef.current?.reset();
       }
     } catch {
       toast.error("An error occurred. Please check your connection and try again.", {
         id: toastId,
       });
-      setValue("turnstileToken", "");
-      turnstileRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  const turnstileSiteKey =
-    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
   return (
     <section className="w-full bg-[#f2f6df] py-12 md:py-20 px-4 md:px-8 relative flex flex-col items-center">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 w-full items-stretch">
 
         {/* Left Side: Text Description */}
-        <div className="w-full lg:w-[40%] flex flex-col justify-center gap-5 lg:pr-8 select-none">
+        <div className="w-full lg:w-[40%] flex flex-col justify-center gap-5 lg:pr-8">
           <h2 className="font-bavicka text-[#638038] text-[32px] md:text-[38px] leading-tight font-medium">
             Enquire About <br />
             Dhanvanti Valley
@@ -100,7 +89,7 @@ export default function EnquiryPage() {
         {/* Right Side: Form Container */}
         <div className="w-full lg:w-[60%] bg-white border border-[#638038]/50 rounded-[10px] p-6 md:p-10 shadow-lg flex flex-col">
           {isSuccess ? (
-            <div className="flex flex-col items-center justify-center text-center py-10 gap-6 select-none animate-in fade-in zoom-in-95 duration-500">
+            <div className="flex flex-col items-center justify-center text-center py-10 gap-6 animate-in fade-in zoom-in-95 duration-500">
               <CheckCircle2 className="size-16 text-[#638038]" />
               <div className="flex flex-col gap-2">
                 <h3 className="font-chopin text-[#638038] text-[24px] font-semibold">
@@ -110,12 +99,21 @@ export default function EnquiryPage() {
                   Thank you for your interest in Dhanvanti Valley. Our sales experts have received your request and will get in touch with you shortly via phone or email.
                 </p>
               </div>
-              <button
-                onClick={() => setIsSuccess(false)}
-                className="mt-4 bg-[#638038] hover:bg-[#536c2e] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer"
-              >
-                Submit Another Inquiry
-              </button>
+              <div className="flex flex-col gap-3 sm:flex-row items-center mt-4">
+                <a
+                  href="/brochure.pdf"
+                  download="Dhanvanti_Valley_Brochure.pdf"
+                  className="bg-[#ca9731] hover:bg-[#b08125] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer flex items-center gap-2"
+                >
+                  Download E-Brochure (PDF)
+                </a>
+                <button
+                  onClick={() => setIsSuccess(false)}
+                  className="bg-[#638038] hover:bg-[#536c2e] text-white hover:shadow-md active:scale-95 transition-all duration-300 font-urbanist font-medium text-[14px] px-6 py-3 rounded-[6px] cursor-pointer"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
             </div>
           ) : (
             <>
@@ -236,23 +234,6 @@ export default function EnquiryPage() {
                 </div>
 
               </form>
-
-              {/* Turnstile below the form */}
-              <div className="mt-6 pt-5 border-t border-[#638038]/15">
-                <Turnstile
-                  ref={turnstileRef}
-                  siteKey={turnstileSiteKey}
-                  onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
-                  onError={() => {
-                    toast.error("Spam protection widget error. Please reload the page.");
-                    setValue("turnstileToken", "");
-                  }}
-                  onExpire={() => setValue("turnstileToken", "")}
-                />
-                {errors.turnstileToken && (
-                  <span className="text-red-500 text-xs mt-1 font-inter block">{errors.turnstileToken.message}</span>
-                )}
-              </div>
             </>
           )}
         </div>

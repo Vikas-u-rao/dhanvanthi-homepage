@@ -12,7 +12,7 @@ export default function Location() {
 
   return (
     <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start select-none">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start">
 
         {/* Left Column: Text & Travel Times Table */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8">
@@ -26,7 +26,7 @@ export default function Location() {
               Closer to everything. <br />
               Further from the noise.
             </h2>
-            <p className="font-chopin text-[18px] md:text-[20px] text-white/90 leading-relaxed font-light tracking-[-0.4px] mt-2">
+            <p className="font-chopin text-[16px] md:text-[17px] text-white/90 leading-relaxed font-light tracking-[-0.3px] mt-2">
               Set against the Hathibarkala wildlife reserve on the road to Mussoorie — within reach of the city, removed from its weight.
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Location() {
             {travelTimes.map((item, idx) => (
               <div
                 key={idx}
-                className="w-full flex justify-between items-center py-4 border-t border-white/20 px-2 font-chopin text-[18px] md:text-[20px] font-light tracking-[-0.4px] hover:bg-white/5 transition-all duration-300"
+                className="w-full flex justify-between items-center py-4 border-t border-white/20 px-2 font-chopin text-[16px] md:text-[17px] font-light tracking-[-0.3px] hover:bg-white/5 transition-all duration-300"
               >
                 <span className="text-gold">
                   {item.destination}

@@ -187,14 +187,4 @@
   }
 }
 
-/* Make the site scale up beautifully on larger desktop displays to match 150% zoom proportions */
-@media (min-width: 1400px) {
-  html {
-    zoom: 1.5;
-  }
-}
-@media (min-width: 1200px) and (max-width: 1399px) {
-  html {
-    zoom: 1.2;
-  }
-}
+/* Browser zoom rules removed — use device native scaling for correct cross-device behaviour */
