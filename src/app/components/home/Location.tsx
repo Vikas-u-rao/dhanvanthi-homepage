@@ -12,7 +12,7 @@ export default function Location() {
 
   return (
     <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start select-none">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start">
 
         {/* Left Column: Text & Travel Times Table */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8">

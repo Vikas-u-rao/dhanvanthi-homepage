@@ -8,7 +8,7 @@ import imgRectangle17 from "@/imports/HomepageDhanvantiValley/70d49e9702302b0f64
 export default function Gallery() {
   return (
     <section id="gallery" className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 select-none">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
         {/* Title and Header */}
         <div className="flex flex-col gap-4">

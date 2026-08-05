@@ -128,23 +128,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { firstName, lastName, phone, email, message, turnstileToken } = body;
-
-    // 2. Validate Turnstile Spam Protection
-    if (!turnstileToken) {
-      return NextResponse.json(
-        { message: "Security token is missing. Please refresh and try again." },
-        { status: 400 }
-      );
-    }
-
-    const isHuman = await verifyTurnstile(turnstileToken, ip);
-    if (!isHuman) {
-      return NextResponse.json(
-        { message: "Failed spam verification check." },
-        { status: 400 }
-      );
-    }
+    const { firstName, lastName, phone, email, message } = body;
 
     // 3. Server-side validation using Zod
     const validation = inquirySchema.safeParse({ firstName, lastName, phone, email, message });

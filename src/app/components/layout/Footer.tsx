@@ -22,13 +22,13 @@ export default function Footer({ onEnquireClick }: FooterProps) {
 
         {/* Content Container */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center gap-4">
-          <span className="font-chopin text-white text-[16px] md:text-[20px] tracking-[0.2em] uppercase select-none">
+          <span className="font-chopin text-white text-[16px] md:text-[20px] tracking-[0.2em] uppercase">
             Make the Move
           </span>
-          <h2 className="font-bavicka text-white text-[32px] md:text-[40px] tracking-wide leading-none select-none">
+          <h2 className="font-bavicka text-white text-[32px] md:text-[40px] tracking-wide leading-none">
             Where Time Feels Richer.
           </h2>
-          <p className="font-chopin text-white text-[18px] md:text-[24px] max-w-xl leading-relaxed mt-2 tracking-[-0.48px] select-none">
+          <p className="font-chopin text-white text-[18px] md:text-[24px] max-w-xl leading-relaxed mt-2 tracking-[-0.48px]">
             Experience residences designed around the way you want to live.
           </p>
 
@@ -55,7 +55,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
 
           {/* Visit / Address Column */}
           <div className="flex flex-col text-center md:text-left gap-1.5 md:w-1/3">
-            <span className="font-chopin text-[#ca9731] text-[15px] md:text-[16px] tracking-[0.1em] font-semibold uppercase select-none">
+            <span className="font-chopin text-[#ca9731] text-[15px] md:text-[16px] tracking-[0.1em] font-semibold uppercase">
               Visit
             </span>
             <p className="font-chopin text-[#638038] text-[16px] md:text-[18px] tracking-[-0.3px] leading-relaxed">
@@ -65,7 +65,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
 
           {/* Contact / Phone Column */}
           <div className="flex flex-col text-center md:text-left gap-1.5 md:w-1/3">
-            <span className="font-chopin text-[#ca9731] text-[15px] md:text-[16px] tracking-[0.1em] font-semibold uppercase select-none">
+            <span className="font-chopin text-[#ca9731] text-[15px] md:text-[16px] tracking-[0.1em] font-semibold uppercase">
               Contact
             </span>
             <a 

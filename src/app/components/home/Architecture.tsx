@@ -5,7 +5,7 @@ import imgRectangle6 from "@/imports/HomepageDhanvantiValley/a3658af04e647e6e2a4
 export default function Architecture() {
   return (
     <section className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 select-none">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
         {/* Title and Intro */}
         <div className="flex flex-col gap-4">

@@ -30,10 +30,10 @@ export default function Hero() {
   return (
     <section className="w-full flex flex-col items-center bg-white overflow-visible">
       {/* 1. Top Hero Image Banner */}
-      <div className="w-full max-w-7xl mx-auto aspect-[1200/472] relative overflow-hidden select-none">
+      <div className="w-full max-w-7xl mx-auto aspect-[1200/400] relative overflow-hidden select-none">
         <img 
           alt="Dhanvanti Valley Hero Banner" 
-          className="w-full h-full object-cover" 
+          className="w-full h-[125%] object-cover object-bottom -mt-[8%]" 
           src={imgHeroBasic.src} 
         />
       </div>
@@ -44,7 +44,7 @@ export default function Hero() {
         {/* DESKTOP VIEWPORT: Auto-scaled overlay container using exact absolute metrics from Figma */}
         <div 
           ref={containerRef}
-          className="hidden md:flex justify-center items-center w-full overflow-hidden select-none"
+          className="hidden md:flex justify-center items-center w-full overflow-hidden"
           style={{ height: `${660 * scale}px` }}
         >
           <div 
@@ -91,7 +91,7 @@ export default function Hero() {
         </div>
 
         {/* MOBILE VIEWPORT: Dynamic Flex stack layout with zero overflow */}
-        <div className="md:hidden w-full max-w-3xl mx-auto px-6 py-12 flex flex-col items-center gap-8 text-center select-none">
+        <div className="md:hidden w-full max-w-3xl mx-auto px-6 py-12 flex flex-col items-center gap-8 text-center">
           {/* Typography */}
           <div className="flex flex-col items-center gap-2">
             <div className="font-bavicka text-[#638038] text-[36px] sm:text-[40px] leading-none">

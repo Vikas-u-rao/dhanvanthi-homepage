@@ -24,7 +24,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Dhanvanti Valley",
   description: "Interested in this project? Fill out the form, and our real estate experts will get back to you with more details.",
-  robots: "noindex, nofollow",
 };
 
 export default function RootLayout({

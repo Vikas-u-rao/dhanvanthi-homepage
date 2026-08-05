@@ -40,7 +40,7 @@ export default function LifeInside() {
 
   return (
     <section className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-16 select-none">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
 
         {/* Section Header */}
         <div className="flex flex-col gap-4">

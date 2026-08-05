@@ -16,7 +16,7 @@ export default function SilentLuxuryMap() {
     <section id="location" className="w-full bg-[#f2f6df] text-[#394d23] px-6 py-16 md:px-16 md:py-24 relative flex flex-col items-center overflow-hidden">
       
       {/* Title & Introduction block */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-4 text-left z-10 select-none">
+      <div className="w-full max-w-7xl mx-auto flex flex-col gap-4 text-left z-10">
         <span className="font-urbanist font-normal uppercase text-[#638038] text-[14px] md:text-[16px] tracking-[0.2em]">
           SILENT LUXURY
         </span>
@@ -74,7 +74,7 @@ export default function SilentLuxuryMap() {
       </div>
 
       {/* Responsive Mobile Layout (Travel Times List) - Shown ONLY on mobile screens */}
-      <div className="md:hidden w-full flex flex-col gap-4 mt-8 select-none z-10 font-urbanist">
+      <div className="md:hidden w-full flex flex-col gap-4 mt-8 z-10 font-urbanist">
         <div className="grid grid-cols-2 gap-3 w-full">
           {points.map((pt, idx) => (
             <div 
