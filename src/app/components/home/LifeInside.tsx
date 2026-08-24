@@ -39,7 +39,7 @@ export default function LifeInside() {
   ];
 
   return (
-    <section id="life-inside" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 border-t border-white/10 relative">
+    <section id="life-inside" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 lg:py-28 border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
 
         {/* Section Header */}
@@ -47,13 +47,13 @@ export default function LifeInside() {
           <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
             Life Inside
           </span>
-          <h2 className="font-chopin text-[28px] md:text-[36px] font-light leading-tight tracking-[-0.72px] max-w-xl">
+          <h2 className="font-chopin text-[28px] md:text-[36px] lg:text-[42px] font-light leading-tight tracking-[-0.72px] max-w-xl">
             A day at Dhanvanti Valley <br />
             is unhurried by Design
           </h2>
         </div>
 
-        {/* Alternating Grid List */}
+        {/* Alternating Grid List - Rectangular Images, No Rounded Corners */}
         <div className="flex flex-col gap-12 md:gap-16 mt-4">
           {items.map((item, idx) => (
             <div
@@ -61,21 +61,21 @@ export default function LifeInside() {
               className={`flex flex-col gap-6 md:gap-12 items-center w-full ${item.isImageLeft ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
             >
-              {/* Image box (60% width on desktop) */}
-              <div className="w-full md:w-[60%] aspect-[16/9] md:h-[276px] overflow-hidden rounded-lg shadow-md shrink-0">
+              {/* Image box (60% width on desktop) - Rectangular, no rounded corners */}
+              <div className="w-full md:w-[60%] aspect-[16/9] md:h-[320px] lg:h-[360px] overflow-hidden shrink-0">
                 <img
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-102"
                   src={item.img.src}
                 />
               </div>
 
               {/* Description box (40% width on desktop) */}
               <div className="w-full md:w-[40%] flex flex-col gap-3 justify-center">
-                <h3 className="font-chopin text-[22px] md:text-[25px] font-medium tracking-[-0.5px]">
+                <h3 className="font-chopin text-[22px] md:text-[26px] lg:text-[28px] font-medium tracking-[-0.5px]">
                   {item.title}
                 </h3>
-                <p className="font-chopin text-white/90 text-[16px] md:text-[17px] leading-relaxed font-light tracking-[-0.3px]">
+                <p className="font-chopin text-white/90 text-[16px] md:text-[17px] lg:text-[18px] leading-relaxed font-light tracking-[-0.3px]">
                   {item.description}
                 </p>
               </div>
