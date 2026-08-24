@@ -1,7 +1,7 @@
 "use client";
 
-import imgLandscape1 from "@/imports/HomepageDhanvantiValley/9135f9cb4de095b2e3f8552865717e2946a8e259.png";
-import imgLandscape2 from "@/imports/HomepageDhanvantiValley/e9ae1adab063682066956368110ab6ac7eec658c.png";
+import imgCity from "@/imports/HomepageDhanvantiValley/city.png";
+import imgView from "@/imports/HomepageDhanvantiValley/view.png";
 
 interface InvestmentSectionProps {
   onEnquireClick?: () => void;
@@ -22,30 +22,30 @@ export default function InvestmentSection({ onEnquireClick }: InvestmentSectionP
           
           {/* Left: Label, Heading, Paragraphs */}
           <div className="flex flex-col gap-6 max-w-xl">
-            <span className="font-chopin text-[#304D20] text-[14px] md:text-[16px] tracking-[0.2em] uppercase font-medium">
+            <span className="font-chopin text-white text-[14px] md:text-[16px] tracking-[0.2em] uppercase font-medium">
               INVESTMENT
             </span>
-            <h2 className="font-chopin text-[#304D20] text-[32px] md:text-[42px] lg:text-[48px] font-light leading-tight tracking-[-0.72px]">
+            <h2 className="font-chopin text-white text-[32px] md:text-[42px] lg:text-[48px] font-light leading-tight tracking-[-0.72px]">
               A Premium Investment in Dehradun's Growing Future
             </h2>
-            <p className="font-chopin text-[#304D20]/80 text-[16px] md:text-[18px] leading-relaxed font-light tracking-[-0.3px]">
+            <p className="font-chopin text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light tracking-[-0.3px]">
               Dehradun is entering a new era of growth. With major infrastructure projects underway — 
               the upcoming metro corridor, NH-7 expansion, and Jolly Grant Airport modernization — the city's 
               connectivity and real estate values are set to accelerate.
             </p>
-            <p className="font-chopin text-[#304D20]/80 text-[16px] md:text-[18px] leading-relaxed font-light tracking-[-0.3px]">
+            <p className="font-chopin text-white/90 text-[16px] md:text-[18px] leading-relaxed font-light tracking-[-0.3px]">
               Dhanvanti Valley sits at the heart of this transformation. Positioned on the Mussoorie corridor 
               against the Hathibarkala reserve, it offers scarcity-driven value: limited land, protected green 
               surroundings, and a lifestyle that appreciates with the city.
             </p>
           </div>
 
-          {/* Right: Large Landscape Image */}
-          <div className="relative aspect-[4/3] lg:aspect-[16/9] overflow-hidden rounded-xl">
+          {/* Right: Large Landscape Image - 562x374 */}
+          <div className="relative aspect-[562/374] overflow-hidden rounded-xl">
             <img
-              alt="Dehradun valley landscape view"
+              alt="Dehradun city view"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-102"
-              src={imgLandscape1.src}
+              src={imgCity.src}
             />
           </div>
 
@@ -60,7 +60,7 @@ export default function InvestmentSection({ onEnquireClick }: InvestmentSectionP
           <div className="bg-[#304D20] text-white px-6 py-12 md:px-16 md:py-20 lg:px-20 lg:py-28 flex flex-col justify-center">
             <div className="max-w-xl mx-auto lg:mx-0 flex flex-col gap-6">
               
-              <p className="font-bavicka text-[#D09A2D] text-[24px] md:text-[32px] lg:text-[36px] leading-[1.2] tracking-tight">
+              <p className="font-chopin text-[#D09A2D] text-[24px] md:text-[32px] lg:text-[36px] leading-[1.2] tracking-tight">
                 This Isn't Just a Project. It's a Point of View.
               </p>
               
@@ -100,12 +100,12 @@ export default function InvestmentSection({ onEnquireClick }: InvestmentSectionP
             </div>
           </div>
 
-          {/* Right: Large Vertical Image */}
+          {/* Right: Large Vertical Image - View */}
           <div className="relative overflow-hidden">
             <img
-              alt="Mountain balcony view Dehradun"
+              alt="Valley view"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-102"
-              src={imgLandscape2.src}
+              src={imgView.src}
             />
           </div>
 
