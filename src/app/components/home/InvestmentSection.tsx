@@ -1,7 +1,7 @@
 "use client";
 
 import imgCity from "@/imports/HomepageDhanvantiValley/city.png";
-import imgView from "@/imports/HomepageDhanvantiValley/view.png";
+import imgView from "@/imports/HomepageDhanvantiValley/e9ae1adab063682066956368110ab6ac7eec658c.png";
 
 interface InvestmentSectionProps {
   onEnquireClick?: () => void;

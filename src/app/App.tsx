@@ -9,7 +9,6 @@ import StickyContactBar from "@/app/components/layout/StickyContactBar";
 
 // Homepage responsive sections
 import Hero from "@/app/components/home/Hero";
-import LuxuryRootedInNature from "@/app/components/home/LuxuryRootedInNature";
 import AboutDeveloper from "@/app/components/home/AboutDeveloper";
 import Lifestyle from "@/app/components/home/Lifestyle";
 import PremiumAmenities from "@/app/components/home/PremiumAmenities";
@@ -69,7 +68,6 @@ export default function App() {
         {page === "home" ? (
           <div className="w-full flex flex-col">
             <Hero onEnquireClick={handleEnquireClick} />
-            <LuxuryRootedInNature />
             <AboutDeveloper />
             <Lifestyle />
             <PremiumAmenities />
