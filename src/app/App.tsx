@@ -13,6 +13,8 @@ import LuxuryRootedInNature from "@/app/components/home/LuxuryRootedInNature";
 import AboutDeveloper from "@/app/components/home/AboutDeveloper";
 import Lifestyle from "@/app/components/home/Lifestyle";
 import PremiumAmenities from "@/app/components/home/PremiumAmenities";
+import GallerySection from "@/app/components/home/GallerySection";
+import InvestmentSection from "@/app/components/home/InvestmentSection";
 
 // Enquiry page component
 import EnquiryPage from "@/app/components/enquiry/EnquiryPage";
@@ -71,6 +73,8 @@ export default function App() {
             <AboutDeveloper />
             <Lifestyle />
             <PremiumAmenities />
+            <GallerySection />
+            <InvestmentSection onEnquireClick={handleEnquireClick} />
             <DetailsBar />
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
