@@ -1,9 +1,10 @@
+import imgWhyLifestyle from "@/imports/HomepageDhanvantiValley/9135f9cb4de095b2e3f8552865717e2946a8e259.png";
+
 export default function WhyDhanvanti() {
   const philosophies = [
-    { num: "01", title: "Silent Luxury", targetId: "silent-luxury" },
-    { num: "02", title: "The 15-Minute Life", targetId: "location" },
-    { num: "03", title: "Thoughtfully Designed Residences", targetId: "architecture" },
-    { num: "04", title: "Effortless by Design", targetId: "life-inside" }
+    { num: "01", title: "The 15-Minute Life", targetId: "location" },
+    { num: "02", title: "Thoughtfully Designed Residences", targetId: "architecture" },
+    { num: "03", title: "Effortless by Design", targetId: "lifestyle" }
   ];
 
   const handleScrollToSection = (targetId: string) => {
@@ -12,21 +13,32 @@ export default function WhyDhanvanti() {
   };
 
   return (
-    <section id="philosophy" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-20 border-t border-[#ececf0]/10">
+    <section id="philosophy" className="w-full bg-[#394d23] text-white px-6 py-16 md:px-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
+        
+        {/* Left Column: Core Purpose Quote + Lifestyle Image */}
+        <div className="w-full lg:w-1/2 flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
+            <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
+              Why Dhanvanti Exists
+            </span>
+            <h2 className="font-chopin text-[32px] md:text-[36px] lg:text-[42px] font-light leading-[1.2] lg:leading-[1.3] max-w-lg">
+              We did not set out <br />
+              to build apartments. <br />
+              <span className="font-chopin italic font-normal">We set out to give <br />
+                people back <br />
+                their time.</span>
+            </h2>
+          </div>
 
-        {/* Left Column: Core Purpose Quote */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-6">
-          <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
-            Why Dhanvanti Exists
-          </span>
-          <h2 className="font-chopin text-[32px] md:text-[36px] font-light leading-[1.2] md:leading-[1.3] max-w-lg">
-            We did not set out <br />
-            to build apartments. <br />
-            <span className="font-chopin italic font-normal">We set out to give <br />
-              people back <br />
-              their time.</span>
-          </h2>
+          {/* Lifestyle Image */}
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <img
+              alt="Dhanvanti Valley lifestyle - peaceful valley living"
+              className="w-full h-full object-cover"
+              src={imgWhyLifestyle.src}
+            />
+          </div>
         </div>
 
         {/* Right Column: Paragraph Description and Core Tenets */}
@@ -69,4 +81,3 @@ export default function WhyDhanvanti() {
     </section>
   );
 }
-

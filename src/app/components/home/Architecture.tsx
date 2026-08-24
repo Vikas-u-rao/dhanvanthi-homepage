@@ -1,61 +1,78 @@
-import imgRectangle3 from "@/imports/HomepageDhanvantiValley/5f8e86edef6db1f6dd0ef3b40e71c5b9fb981c59.png";
-import imgRectangle5 from "@/imports/HomepageDhanvantiValley/f257ea212fa4f3260fa75f7bd475b9c9c705250f.png";
-import imgRectangle6 from "@/imports/HomepageDhanvantiValley/a3658af04e647e6e2a48b6ca2977a885ef2799a6.png";
+import imgEntrance from "@/imports/HomepageDhanvantiValley/dhanavanti_entance.png";
 
 export default function Architecture() {
   return (
-    <section id="architecture" className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10">
+    <section id="architecture" className="w-full bg-white overflow-hidden">
+      
+      {/* Full-Width Entrance Image - Primary Visual Focus */}
+      <div className="w-full aspect-[21/10] lg:aspect-[24/11] relative overflow-hidden">
+        <img
+          alt="Dhanvanti Valley grand entrance architecture"
+          className="w-full h-full object-cover"
+          src={imgEntrance.src}
+        />
+      </div>
 
-        {/* Title and Intro */}
-        <div className="flex flex-col gap-4">
-          <span className="font-chopin text-[#638038] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
-            Architecture
-          </span>
-          <h2 className="font-chopin text-[28px] md:text-[36px] font-medium leading-tight tracking-[-0.72px]">
-            Treated as sculpture, <br className="hidden md:inline" />
-            not structure.
-          </h2>
-          <p className="font-chopin text-[18px] md:text-[20px] text-[#394d23]/80 leading-relaxed max-w-3xl tracking-[-0.4px] mt-2">
-            Every elevation was drawn to disappear into the hillside it sits on. Materials weather with the seasons rather than resist them — stone darkens, wood softens, and the building grows quieter with age, the way good architecture should.
-          </p>
-        </div>
+      {/* Dark Green Information Area */}
+      <div className="bg-[#394d23] text-white px-6 py-12 md:px-16 md:py-16 lg:py-20 relative">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10 lg:flex-row lg:gap-16 items-start">
+          
+          {/* Left: Label + Heading + Description */}
+          <div className="w-full lg:w-2/5 flex flex-col gap-6">
+            <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
+              Architecture
+            </span>
+            <h2 className="font-chopin text-[32px] md:text-[36px] lg:text-[42px] font-light leading-tight tracking-[-0.72px] max-w-xl">
+              An Entrance That<br />
+              Announces Arrival
+            </h2>
+            <p className="font-chopin text-white/80 text-[16px] md:text-[18px] leading-relaxed font-light tracking-[-0.3px] max-w-md">
+              The gateway to Dhanvanti Valley is framed by stone and timber, opening onto a tree-lined boulevard that 
+              immediately separates you from the city. Every arrival feels like a return.
+            </p>
+          </div>
 
-        {/* Images Grid Layout */}
-        <div className="w-full flex flex-col gap-6 mt-4">
-
-          {/* Top Row: Two side-by-side images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            {/* Left Image */}
-            <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
-              <img
-                alt="Dhanvanti Valley residential building facade — left elevation"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle6.src}
-              />
+          {/* Right: Multiple Info Columns */}
+          <div className="w-full lg:w-3/5 grid grid-cols-2 gap-8 md:gap-12">
+            <div className="flex flex-col gap-4">
+              <h3 className="font-chopin text-gold text-[20px] md:text-[22px] font-medium tracking-[-0.4px]">
+                Material Palette
+              </h3>
+              <p className="font-chopin text-white/80 text-[15px] md:text-[16px] leading-relaxed font-light">
+                Local stone, sustainably sourced timber, and low-reflectivity glass — chosen to age gracefully 
+                against the valley backdrop.
+              </p>
             </div>
-
-            {/* Right Image */}
-            <div className="w-full aspect-[4/3] md:h-[435px] overflow-hidden rounded-lg shadow-sm">
-              <img
-                alt="Dhanvanti Valley residential building facade — right elevation"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                src={imgRectangle5.src}
-              />
+            <div className="flex flex-col gap-4">
+              <h3 className="font-chopin text-gold text-[20px] md:text-[22px] font-medium tracking-[-0.4px]">
+                Spatial Logic
+              </h3>
+              <p className="font-chopin text-white/80 text-[15px] md:text-[16px] leading-relaxed font-light">
+                Double-height lobby, generous porte-cochère, and seamless indoor-outdoor transitions define 
+                the arrival experience.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h3 className="font-chopin text-gold text-[20px] md:text-[22px] font-medium tracking-[-0.4px]">
+                Environmental Response
+              </h3>
+              <p className="font-chopin text-white/80 text-[15px] md:text-[16px] leading-relaxed font-light">
+                Passive cooling through cross-ventilation corridors, deep overhangs for solar shading, 
+                and rainwater harvesting integrated at grade.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h3 className="font-chopin text-gold text-[20px] md:text-[22px] font-medium tracking-[-0.4px]">
+                Structural Integrity
+              </h3>
+              <p className="font-chopin text-white/80 text-[15px] md:text-[16px] leading-relaxed font-light">
+                Earthquake-resistant RCC frame (Zone IV compliant), with shear walls designed for 
+                the Himalayan seismic profile.
+              </p>
             </div>
           </div>
 
-          {/* Bottom Row: Wide banner image */}
-          <div className="w-full aspect-[16/9] md:h-[535px] overflow-hidden rounded-lg shadow-sm">
-            <img
-              alt="Dhanvanti Valley panoramic exterior view surrounded by Dehradun greenery"
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
-              src={imgRectangle3.src}
-            />
-          </div>
-
         </div>
-
       </div>
     </section>
   );

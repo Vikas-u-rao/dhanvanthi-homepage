@@ -28,137 +28,122 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="w-full bg-white text-[#394d23] px-6 py-16 md:px-16 md:py-24 border-t border-[#ececf0] relative">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10">
-
-        {/* Title and Header */}
-        <div className="flex flex-col gap-4">
+    <section id="gallery" className="w-full bg-black text-white px-6 py-16 md:px-16 md:py-24 lg:py-32 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        
+        {/* Title and Header - Left Aligned */}
+        <div className="flex flex-col gap-4 max-w-3xl">
           <span className="font-chopin text-[#638038] text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
-            Gallery
+            GALLERY
           </span>
-          <h2 className="font-chopin text-[28px] md:text-[36px] font-medium leading-tight tracking-[-0.72px]">
-            A walk through <br className="hidden md:inline" />
+          <h2 className="font-chopin text-[#638038] text-[32px] md:text-[42px] lg:text-[48px] font-medium leading-tight tracking-[-0.72px]">
+            A walk through<br />
             the valley.
           </h2>
-          <p className="text-sm text-gray-500 font-inter">
-            Click on any image to open the immersive full-screen viewer.
-          </p>
         </div>
 
-        {/* Masonry Grid */}
-        <div className="w-full flex flex-col gap-6 mt-2">
-
-          {/* Row 1: Two side-by-side images */}
-          <div className="grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-6 w-full">
-            {/* Image 1 */}
-            <div 
-              onClick={() => openLightbox(0)}
-              className="w-full aspect-[415/276] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-            >
-              <img
-                alt={galleryImages[0].alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src={galleryImages[0].src}
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                  View Image
-                </span>
-              </div>
-            </div>
-            {/* Image 2 */}
-            <div 
-              onClick={() => openLightbox(1)}
-              className="w-full aspect-[580/276] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-            >
-              <img
-                alt={galleryImages[1].alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src={galleryImages[1].src}
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                  View Image
-                </span>
-              </div>
+        {/* Asymmetric Masonry Grid - CSS Grid with explicit placement */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6">
+          {/* Image 1 - Large, spans 3 cols, 2 rows on desktop */}
+          <div 
+            onClick={() => openLightbox(0)}
+            className="col-span-1 md:col-span-3 md:row-span-2 aspect-[4/3] md:aspect-[8/5] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[0].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[0].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
             </div>
           </div>
 
-          {/* Row 2: Two columns of stacked images */}
-          <div className="grid grid-cols-1 md:grid-cols-[6fr_4fr] gap-6 w-full">
-
-            {/* Left Stack Column */}
-            <div className="flex flex-col gap-6">
-              {/* Image 3 */}
-              <div 
-                onClick={() => openLightbox(2)}
-                className="w-full aspect-[611/389] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-              >
-                <img
-                  alt={galleryImages[2].alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={galleryImages[2].src}
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                    View Image
-                  </span>
-                </div>
-              </div>
-              {/* Image 5 */}
-              <div 
-                onClick={() => openLightbox(4)}
-                className="w-full aspect-[611/594] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-              >
-                <img
-                  alt={galleryImages[4].alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={galleryImages[4].src}
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                    View Image
-                  </span>
-                </div>
-              </div>
+          {/* Image 2 - Medium, spans 3 cols, 1 row */}
+          <div 
+            onClick={() => openLightbox(1)}
+            className="col-span-1 md:col-span-3 aspect-[4/3] md:aspect-[16/9] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[1].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[1].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
             </div>
+          </div>
 
-            {/* Right Stack Column */}
-            <div className="flex flex-col gap-6">
-              {/* Image 4 */}
-              <div 
-                onClick={() => openLightbox(3)}
-                className="w-full aspect-[386/704] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-              >
-                <img
-                  alt={galleryImages[3].alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={galleryImages[3].src}
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                    View Image
-                  </span>
-                </div>
-              </div>
-              {/* Image 6 */}
-              <div 
-                onClick={() => openLightbox(5)}
-                className="w-full aspect-[387/276] overflow-hidden rounded-lg shadow-sm cursor-pointer relative group"
-              >
-                <img
-                  alt={galleryImages[5].alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={galleryImages[5].src}
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                    View Image
-                  </span>
-                </div>
-              </div>
+          {/* Image 3 - Tall, spans 2 cols, 2 rows */}
+          <div 
+            onClick={() => openLightbox(2)}
+            className="col-span-1 md:col-span-2 md:row-span-2 aspect-[3/4] md:aspect-[4/5] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[2].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[2].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
             </div>
+          </div>
 
+          {/* Image 4 - Tall, spans 2 cols, 2 rows (different position) */}
+          <div 
+            onClick={() => openLightbox(3)}
+            className="col-span-1 md:col-span-2 md:row-span-2 md:col-start-5 aspect-[3/4] md:aspect-[3/5] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[3].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[3].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
+            </div>
+          </div>
+
+          {/* Image 5 - Wide, spans 3 cols, 1 row */}
+          <div 
+            onClick={() => openLightbox(4)}
+            className="col-span-1 md:col-span-3 aspect-[4/3] md:aspect-[16/9] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[4].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[4].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
+            </div>
+          </div>
+
+          {/* Image 6 - Medium, spans 3 cols, 1 row */}
+          <div 
+            onClick={() => openLightbox(5)}
+            className="col-span-1 md:col-span-3 aspect-[4/3] md:aspect-[16/9] overflow-hidden cursor-pointer relative group"
+          >
+            <img
+              alt={galleryImages[5].alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              src={galleryImages[5].src}
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white text-xs font-medium uppercase tracking-wider bg-black/60 px-4 py-2 backdrop-blur-sm">
+                View Image
+              </span>
+            </div>
           </div>
 
         </div>
@@ -176,4 +161,3 @@ export default function Gallery() {
     </section>
   );
 }
-

@@ -9,16 +9,10 @@ import StickyContactBar from "@/app/components/layout/StickyContactBar";
 
 // Homepage responsive sections
 import Hero from "@/app/components/home/Hero";
-import WhyDhanvanti from "@/app/components/home/WhyDhanvanti";
-import SilentLuxuryMap from "@/app/components/home/SilentLuxuryMap";
-import SilentLuxuryInfo from "@/app/components/home/SilentLuxuryInfo";
-import Architecture from "@/app/components/home/Architecture";
-import FloorPlans from "@/app/components/home/FloorPlans";
-import VastuSection from "@/app/components/home/VastuSection";
-import LifeInside from "@/app/components/home/LifeInside";
+import LuxuryRootedInNature from "@/app/components/home/LuxuryRootedInNature";
 import AboutDeveloper from "@/app/components/home/AboutDeveloper";
-import Gallery from "@/app/components/home/Gallery";
-import Location from "@/app/components/home/Location";
+import Lifestyle from "@/app/components/home/Lifestyle";
+import PremiumAmenities from "@/app/components/home/PremiumAmenities";
 
 // Enquiry page component
 import EnquiryPage from "@/app/components/enquiry/EnquiryPage";
@@ -36,11 +30,8 @@ export default function App() {
   };
 
   return (
-    // select-none removed — text is selectable site-wide
-    // pb-20 md:pb-0 ensures sticky bar doesn't cover content on mobile
     <div className="bg-white min-h-screen flex flex-col w-full overflow-x-hidden pb-20 md:pb-0">
       
-      {/* Toast notifications handler */}
       <Toaster position="top-right" richColors />
 
       <style>{`
@@ -52,7 +43,7 @@ export default function App() {
           font-weight: 400;
           font-style: normal;
           font-display: swap;
-        }
+          }
         body {
           font-family: 'Chopin-Trial VF', 'Urbanist', sans-serif;
         }
@@ -70,24 +61,16 @@ export default function App() {
         }
       `}</style>
 
-      {/* Responsive Navigation Header */}
       <Navbar currentPage={page} onNavigate={handleNavigate} />
 
-      {/* Pages Container */}
       <main className="w-full flex-grow flex flex-col">
         {page === "home" ? (
           <div className="w-full flex flex-col">
             <Hero onEnquireClick={handleEnquireClick} />
-            <WhyDhanvanti />
-            <SilentLuxuryMap />
-            <SilentLuxuryInfo />
-            <Architecture />
-            <FloorPlans onBrochureClick={handleEnquireClick} />
-            <VastuSection />
-            <LifeInside />
+            <LuxuryRootedInNature />
             <AboutDeveloper />
-            <Gallery />
-            <Location />
+            <Lifestyle />
+            <PremiumAmenities />
             <DetailsBar />
             <Footer onEnquireClick={handleEnquireClick} />
           </div>
@@ -100,7 +83,6 @@ export default function App() {
         )}
       </main>
 
-      {/* Mobile sticky contact bar — hidden on desktop */}
       <StickyContactBar onEnquireClick={handleEnquireClick} />
 
     </div>

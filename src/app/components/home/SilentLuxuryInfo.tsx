@@ -23,7 +23,7 @@ export default function SilentLuxuryInfo() {
           <span className="font-chopin text-gold text-[14px] md:text-[16px] tracking-[0.2em] uppercase">
             Silent Luxury
           </span>
-          <h2 className="font-chopin text-[30px] md:text-[36px] font-light leading-tight tracking-[-0.72px] max-w-2xl">
+          <h2 className="font-chopin text-[30px] md:text-[36px] lg:text-[42px] font-light leading-tight tracking-[-0.72px] max-w-2xl">
             Not marble. Not monograms. <br />
             Just the conditions for a calmer life.
           </h2>
