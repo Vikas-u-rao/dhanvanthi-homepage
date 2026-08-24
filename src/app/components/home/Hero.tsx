@@ -45,11 +45,11 @@ export default function Hero({ onEnquireClick }: HeroProps) {
       {/* Visually hidden H1 for SEO */}
       <h1 className="sr-only">Luxury Apartments in Dehradun — Dhanvanti Valley</h1>
 
-      {/* 1. Top Hero Image Banner */}
-      <div className="w-full aspect-[1200/360] relative overflow-hidden select-none">
+      {/* 1. Top Hero Image Banner - Complete image, no additional styles */}
+      <div className="w-full select-none">
         <img 
           alt="Dhanvanti Valley luxury residential facade" 
-          className="w-full h-[140%] object-cover object-[center_38%] -mt-[14%]" 
+          className="w-full h-auto" 
           src={imgHeroBasic.src} 
         />
       </div>

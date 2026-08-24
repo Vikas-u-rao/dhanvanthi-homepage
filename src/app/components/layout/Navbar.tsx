@@ -64,6 +64,14 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const navItemStyle = {
+    fontFamily: "'Chopin-Trial VF', 'Urbanist', sans-serif",
+    fontWeight: 530,
+    fontStyle: 'normal',
+    fontSize: '18px',
+    lineHeight: '1',
+  };
+
   const handleLogoClick = () => {
     setIsOpen(false);
     onNavigate("home");
@@ -71,7 +79,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-[#ececf0] px-4 md:px-8 py-3 md:py-4 flex justify-between items-center transition-all duration-300">
+<header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-[#ececf0] px-4 md:px-8 my-0.5 py-4 md:py-8 flex justify-between items-center transition-all duration-300">
       {/* Brand Logo — select-none retained on logo only (decorative/brand mark) */}
       <div 
         onClick={handleLogoClick}
@@ -79,11 +87,11 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         aria-label="Go to Dhanvanti Valley homepage"
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && handleLogoClick()}
-        className="relative overflow-hidden cursor-pointer w-[180px] h-[36px] md:w-[331px] md:h-[66px] select-none"
+        className="relative overflow-hidden cursor-pointer w-[180px] h-[34px] md:w-[331px] md:h-[66px] select-none"
       >
         <img 
           alt="Dhanvanti Valley" 
-          className="absolute max-w-none w-full h-[357.31%] left-0 top-[-108.86%] object-contain" 
+          className="absolute max-w-none w-full h-[360.31%] left-0 top-[-108.86%] object-contain" 
           src={imgDhanvntiValleyLogoFroLightBg1.src} 
         />
       </div>
@@ -103,28 +111,32 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           <button 
             onClick={() => handleNavClick("philosophy")}
             aria-label="Go to Philosophy section"
-            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
+            style={navItemStyle}
+            className="cursor-pointer px-3 py-2 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-[#f5f5f5]"
           >
             Philosophy
           </button>
           <button 
             onClick={() => handleNavClick("gallery")}
             aria-label="Go to Gallery section"
-            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
+            style={navItemStyle}
+            className="cursor-pointer px-3 py-2 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-[#f5f5f5]"
           >
             Gallery
           </button>
           <button 
             onClick={() => handleNavClick("location")}
             aria-label="Go to Location section"
-            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
+            style={navItemStyle}
+            className="cursor-pointer px-3 py-2 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-[#f5f5f5]"
           >
             Location
           </button>
           <button 
             onClick={() => handleNavClick("brochure")}
             aria-label="Download brochure — opens enquiry form"
-            className="cursor-pointer px-3 py-2 rounded-[8px] font-chopin text-[#2c2c2c] text-[15px] transition-all hover:bg-[#f5f5f5]"
+            style={navItemStyle}
+            className="cursor-pointer px-3 py-2 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-[#f5f5f5]"
           >
             Brochure
           </button>
@@ -133,7 +145,15 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         <button 
           onClick={handleEnquireClick}
           aria-label="Open enquiry form"
-          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer px-5 py-2 rounded-[8px] font-inter font-normal text-[14px] transition-all"
+          style={{
+            width: '178px',
+            height: '32px',
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: '18px',
+            lineHeight: '1',
+          }}
+          className="bg-[#638038] text-white hover:bg-[#536c2e] active:scale-95 cursor-pointer rounded-[8px] transition-all flex items-center justify-center"
         >
           Enquire Now
         </button>
@@ -172,25 +192,29 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <nav className="flex flex-col gap-3 mt-2" aria-label="Mobile navigation">
               <button 
                 onClick={() => handleNavClick("philosophy")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
+                style={navItemStyle}
+                className="w-full text-left py-2 px-3 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-gray-50"
               >
                 Philosophy
               </button>
               <button 
                 onClick={() => handleNavClick("gallery")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
+                style={navItemStyle}
+                className="w-full text-left py-2 px-3 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-gray-50"
               >
                 Gallery
               </button>
               <button 
                 onClick={() => handleNavClick("location")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
+                style={navItemStyle}
+                className="w-full text-left py-2 px-3 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-gray-50"
               >
                 Location
               </button>
               <button 
                 onClick={() => handleNavClick("brochure")}
-                className="w-full text-left py-2 px-3 rounded-[8px] font-chopin text-[#2c2c2c] text-[17px] transition-all hover:bg-gray-50"
+                style={navItemStyle}
+                className="w-full text-left py-2 px-3 rounded-[8px] text-[#2c2c2c] transition-all hover:bg-gray-50"
               >
                 Brochure
               </button>
@@ -200,7 +224,16 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               <button 
                 onClick={handleEnquireClick}
                 aria-label="Open enquiry form"
-                className="w-full bg-[#638038] text-white text-center py-3 rounded-[8px] font-inter font-normal text-[15px] transition-all hover:bg-[#536c2e]"
+                style={{
+                  width: '178px',
+                  height: '32px',
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: '18px',
+                  lineHeight: '1',
+                  margin: '0 auto',
+                }}
+                className="bg-[#638038] text-white hover:bg-[#536c2e] transition-all rounded-[8px] flex items-center justify-center"
               >
                 Enquire Now
               </button>
